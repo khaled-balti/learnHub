@@ -11,11 +11,11 @@ const Navbar = () => {
                 <div className={`${classes['left-part']}`}><i className="fa fa-book"></i>  <span>eLEARNING</span></div>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav ms-auto">
-                        <NavBarLink>Home</NavBarLink>
-                        <NavBarLink>About</NavBarLink>
-                        <NavBarLink>Courses</NavBarLink>
-                        <NavBarLink>Team</NavBarLink>
-                        <NavBarLink>Contact</NavBarLink>
+                        <NavBarLink link="/">Home</NavBarLink>
+                        <NavBarLink link="/about">About</NavBarLink>
+                        <NavBarLink link="/courses">Courses</NavBarLink>
+                        <NavBarLink link="/team">Team</NavBarLink>
+                        <NavBarLink link="/contact">Contact</NavBarLink>
                     </ul>
                     <button type="button" className={classes.join}>Join Now   <i className="fa fa-arrow-circle-left"></i></button>
                 </div>

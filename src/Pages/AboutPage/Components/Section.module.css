@@ -1,0 +1,34 @@
+.cont {
+    margin-bottom: 100px;
+}
+.part {
+    width: 630px;
+    height: 500px;
+    overflow: hidden;
+}
+.title {
+    color: #06bbcc;
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+.subtitle {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    margin-bottom: 15px;
+}
+.icons {
+    color: #06bbcc;
+}
+.button {
+    width: 150px;
+    height: 60px;
+    margin-left: 12px;
+    font-size: 20px;
+    background-color: #06bbcc;
+    color: white;
+    border-color: #06bbcc;
+    font-weight: 500;
+    border-color: #06bbcc;
+}

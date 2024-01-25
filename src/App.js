@@ -12,11 +12,11 @@ import Login from './Pages/LoginPage/Login';
 const router = createBrowserRouter([
   { path: '/' , element: <RootLayout />, errorElement: <Error/>, children: [
     {index: true , element: <Home />},
-    {path: 'about', errorElement: <About />},
-    {path: 'courses', errorElement: <Courses />},
-    {path: 'team', errorElement: <Team />},
-    {path: 'contact', errorElement: <Contact />},
-    {path: 'login', errorElement: <Login />},
+    {path: 'about', element: <About />},
+    {path: 'courses', element: <Courses />},
+    {path: 'team', element: <Team />},
+    {path: 'contact', element: <Contact />},
+    {path: 'login', element: <Login />},
   ]}
 ])
 function App() {
