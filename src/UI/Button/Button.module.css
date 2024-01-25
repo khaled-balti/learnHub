@@ -1,0 +1,16 @@
+.button {
+    width: 200px;
+    height: 60px;
+    margin-left: 12px;
+    font-size: 20px;
+}
+.blue {
+    background-color: #06bbcc;
+    color: white;
+    border-color: #06bbcc;
+}
+.white {
+    background-color: white;
+    color: black;
+    border-color: white;
+}

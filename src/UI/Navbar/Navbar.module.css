@@ -1,0 +1,20 @@
+.left-part {
+    font-size: 34px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #06bbcc;
+    margin-left: -60px;
+}
+.active {
+    color: #06bbcc;
+}
+.join {
+    height: 75px;
+    background-color: #06bbcc;
+    width: 200px;
+    color: white;
+    margin-right: -115px;
+    border-color: #06bbcc;
+    font-size: 20px;
+}
