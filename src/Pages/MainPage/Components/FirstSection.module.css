@@ -21,3 +21,19 @@
 .icons {
     color: #06bbcc;
 }
+.row {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.stars {
+    height: auto;
+    min-height: 600px;
+}
+@media (max-width: 1200px) {
+    .wrap {
+        flex-wrap: wrap-reverse;
+    }
+}
+

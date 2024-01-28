@@ -10,7 +10,7 @@ const Carousel = () => {
   return (
     <div
       id="carouselExampleCaptions"
-      className="carousel slide"
+      className={`carousel slide ${classes.cont} w-100 p-0`}
       data-bs-ride="carousel"
     >
       <div className="carousel-indicators">
@@ -31,14 +31,14 @@ const Carousel = () => {
       </div>
       <div className="carousel-inner">
         <div className="carousel-item active bg-dark" data-bs-interval="5000">
-          <img src={Carousel1} style={{opacity: 0.2 , height: '100vh'}} className="d-block w-100" alt="..." />
+          <img src={Carousel1} style={{opacity: 0.2 , width: '100%'}} className={`d-md-flex justify-content-md-between align-items-md-center image-fluid ${classes.item}`} alt="..." />
           <CarouselAnimatedItem
             title="The Best Online Learning Platform"
             description="Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea sanctus eirmod elitr."
           />
         </div>
-        <div className="carousel-item bg-dark" data-bs-interval="2000">
-          <img src={Carousel2} style={{opacity: 0.2 , height: '100vh'}} className="d-block w-100" alt="..." />
+        <div className="carousel-item bg-dark" data-bs-interval="5000">
+          <img src={Carousel2} style={{opacity: 0.2 , width: '100%'}} className={`d-md-flex justify-content-md-between align-items-md-center image-fluid ${classes.item}`} alt="..." />
           <CarouselItem
             title="Get Educated Online From Your Home"
             description="Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea sanctus eirmod elitr."

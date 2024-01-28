@@ -1,10 +1,9 @@
 import React, { useRef, useEffect } from "react";
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\bootstrap\\dist\\css\\bootstrap.min.css";
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\bootstrap\\dist\\js\\bootstrap.min.js";
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\font-awesome\\css\\font-awesome.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import HomePicOne from "../../../img/home1.jpg";
 import classes from "./FirstSection.module.css";
 import { motion, useAnimation, useInView } from "framer-motion";
+
 const FirstSection = (props) => {
   const imageRef = useRef();
   const imageIsInView = useInView(imageRef, { once: true });
@@ -14,6 +13,7 @@ const FirstSection = (props) => {
       imgcontrols.start("visibleImg");
     }
   }, [imageIsInView]);
+
   const slogonRef = useRef();
   const slogonIsInView = useInView(slogonRef, { once: true });
   const slogoncontrols = useAnimation();
@@ -22,6 +22,7 @@ const FirstSection = (props) => {
       slogoncontrols.start("visibleSlogon");
     }
   }, [slogonIsInView]);
+
   const titleRef = useRef();
   const titleIsInView = useInView(titleRef, { once: true });
   const titlecontrols = useAnimation();
@@ -30,6 +31,7 @@ const FirstSection = (props) => {
       titlecontrols.start("visibleTitle");
     }
   }, [titleIsInView]);
+
   const firstParagraphRef = useRef();
   const firstParagraphIsInView = useInView(firstParagraphRef, { once: true });
   const firstParagraphcontrols = useAnimation();
@@ -38,6 +40,7 @@ const FirstSection = (props) => {
       firstParagraphcontrols.start("visibleFirstParagraph");
     }
   }, [firstParagraphIsInView]);
+
   const secondParagraphRef = useRef();
   const secondParagraphIsInView = useInView(secondParagraphRef, { once: true });
   const secondParagraphcontrols = useAnimation();
@@ -46,6 +49,7 @@ const FirstSection = (props) => {
       secondParagraphcontrols.start("visibleSecondParagraph");
     }
   }, [secondParagraphIsInView]);
+
   const starsRef = useRef();
   const starsIsInView = useInView(starsRef, { once: true });
   const starscontrols = useAnimation();
@@ -56,15 +60,13 @@ const FirstSection = (props) => {
   }, [starsIsInView]);
 
   return (
-    <div
-      className={`container container-fluid d-flex justify-content-center align-items-center ${classes.cont}`}
-    >
-      <div className="row">
-        <div className={`col-md-6 col-sm-12 ${classes.part} me-5`}>
+    <div className={`container-md ${classes.cont} w-100`}>
+      <div className={`row`}>
+        <div className={`col-lg-6 col-12 ${classes.part} me-lg-5`}>
           <motion.img
             src={HomePicOne}
             alt="error"
-            className={classes.part}
+            className={`${classes.part} img-fluid`}
             ref={imageRef}
             variants={{
               hiddenImg: { opacity: 0, y: 150 },
@@ -79,11 +81,9 @@ const FirstSection = (props) => {
             }}
           />
         </div>
-        <div
-          className={`col-md-6 col-sm-12 ${classes.part} d-flex flex-column pt-2`}
-        >
+        <div className={`col-lg-6 col-md-12 ${classes.part} d-flex flex-column pt-2`}>
           <motion.h5
-            className={classes.title}
+            className={`${classes.title} text-center text-lg-start`}
             ref={slogonRef}
             variants={{
               hiddenSlogon: { opacity: 0, y: 150 },
@@ -99,7 +99,7 @@ const FirstSection = (props) => {
             motivation
           </motion.h5>
           <motion.h1
-            className={classes.subtitle}
+            className={`${classes.subtitle} text-center text-lg-start`}
             ref={titleRef}
             variants={{
               hiddenTitle: { opacity: 0, y: 150 },
@@ -115,7 +115,7 @@ const FirstSection = (props) => {
             Still Always Motivated
           </motion.h1>
           <motion.p
-            className="text-black-50 mb-4 fs-5"
+            className={`text-center text-lg-start text-black-50 mb-4 fs-5`}
             ref={firstParagraphRef}
             variants={{
               hiddenFirstParagraph: { opacity: 0, y: 150 },
@@ -132,7 +132,7 @@ const FirstSection = (props) => {
             diam amet diam et eos. Clita erat ipsum et lorem et sit.
           </motion.p>
           <motion.p
-            className="text-black-50 mb-5 fs-5"
+            className={`text-center text-lg-start text-black-50 mb-4 fs-5`}
             ref={secondParagraphRef}
             variants={{
               hiddenSecondParagraph: { opacity: 0, y: 150 },
@@ -149,7 +149,7 @@ const FirstSection = (props) => {
             diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet
             lorem sit clita duo justo magna dolore erat amet
           </motion.p>
-          <div className="container">
+          <div className="container ">
             <div className="row">
               <div className="col-sm-6">
                 <p>
@@ -213,7 +213,7 @@ const FirstSection = (props) => {
                       opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
                     }}
                   >
-                    Internal Certificates
+                    International Certificates
                   </motion.span>
                 </p>
                 <p>
@@ -249,8 +249,8 @@ const FirstSection = (props) => {
                   </motion.span>
                 </p>
               </div>
-              <div className="col-sm-6">
-                <p>
+              <div className={`col-sm-6 ${classes.stars}`}>
+              <p>
                   <motion.i
                     className={`fa fa-star ${classes.icons} me-1`}
                     ref={starsRef}
@@ -311,7 +311,7 @@ const FirstSection = (props) => {
                       opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
                     }}
                   >
-                    Internal Certificates
+                    International Certificates
                   </motion.span>
                 </p>
                 <p>

@@ -15,7 +15,7 @@ const Header = (props) => {
     }
   }, [titleIsInView])
   return (
-    <div className={classes.cont}>
+    <div className={`${classes.cont} container-fluid w-100 p-0`}>
       <div className={classes.caption}>
         <motion.h1
           ref={titleRef}
@@ -32,7 +32,9 @@ const Header = (props) => {
         </motion.h1>
         <ButtonRead>Read More</ButtonRead>
       </div>
-      <img src={HomePicOne} alt="error" className={classes.filter} />
+      <div className={`container-fluid mx-0 w-100 p-0 ${classes.backim}`}>
+        <img src={HomePicOne} alt="error" className={`${classes.filter} ${classes.cont} img-fluid`} />
+      </div>
     </div>
   );
 };

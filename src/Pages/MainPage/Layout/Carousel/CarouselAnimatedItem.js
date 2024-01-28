@@ -48,12 +48,12 @@ const CarouselAnimatedItem = (props) => {
         initial="hiddenTitle"
         animate={controls}
         transition={{ duration: 0.8, ease: "easeInOut" }}
-        className={classes["big-title"]}
+        className={`${classes["big-title"]} fs-md-2`}
       >
         {props.title}
       </motion.h1>
-      <p className={classes.description}>{props.description}</p>
-      <div>
+      <p className={`${classes.description}`}>{props.description}</p>
+      <div className="d-flex">
         <Button
           type="button"
           func="blue"

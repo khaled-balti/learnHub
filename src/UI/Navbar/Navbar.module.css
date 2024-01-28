@@ -4,7 +4,7 @@
     letter-spacing: 1px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #06bbcc;
-    margin-left: -60px;
+    /* margin-left: -60px; */
 }
 .active {
     color: #06bbcc;
@@ -18,3 +18,19 @@
     border-color: #06bbcc;
     font-size: 20px;
 }
+.button {
+    background-color: #06bbcc;
+    color: white;
+}
+.button:hover,
+.button:focus,
+.button:active {
+    outline: none;
+    background-color: #06bbcc;
+    color: white;
+} 
+/* @media (max-width: 768px) {
+    .left-part {
+
+    }
+} */

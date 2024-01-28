@@ -8,8 +8,20 @@ const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg bg-white fixed-top shadow-0 border-bottom border-white" style={{height: '75px'}} >
             <div className="container">
-                <div className={`${classes['left-part']}`}><i className="fa fa-book"></i>  <span>eLEARNING</span></div>
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <div className={`${classes['left-part']} d-none d-lg-inline`}><i className="fa fa-book"></i>  <span>eLEARNING</span></div>
+                <div class="dropdown">
+                    <button className={`btn dropdown-toggle d-lg-none d-inline ${classes.button}`} type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Menu
+                    </button>
+                    <ul class="dropdown-menu ps-5">
+                        <NavBarLink link="/">Home</NavBarLink>
+                        <NavBarLink link="/about">About</NavBarLink>
+                        <NavBarLink link="/courses">Courses</NavBarLink>
+                        <NavBarLink link="/team">Team</NavBarLink>
+                        <NavBarLink link="/contact">Contact</NavBarLink>
+                    </ul>
+                </div>
+                <div className="collapse navbar-collapse d-none d-lg-inline" id="navbarSupportedContent">
                     <ul className="navbar-nav ms-auto">
                         <NavBarLink link="/">Home</NavBarLink>
                         <NavBarLink link="/about">About</NavBarLink>

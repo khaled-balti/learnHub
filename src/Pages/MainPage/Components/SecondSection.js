@@ -56,15 +56,11 @@ const SecondSection = (props) => {
   }, [starsIsInView]);
 
   return (
-    <div
-      className={`container container-fluid d-flex justify-content-center align-items-center ${classes.cont}`}
-    >
-      <div className="row">
-        <div
-          className={`col-md-6 col-sm-12 ${classes.part} d-flex flex-column pt-2`}
-        >
+    <div className={`container ${classes.cont} w-100`}>
+      <div className={`row`}>
+        <div className={`col-lg-6 col-md-12 ${classes.part} d-flex flex-column pt-2 mb-4 mb-lg-0`}>
           <motion.h5
-            className={classes.title}
+            className={`${classes.title} text-center text-lg-start`}
             ref={slogonRef}
             variants={{
               hiddenSlogon: { opacity: 0, y: 150 },
@@ -80,7 +76,7 @@ const SecondSection = (props) => {
             success
           </motion.h5>
           <motion.h1
-            className={classes.subtitle}
+            className={`${classes.subtitle} text-center text-lg-start`}
             ref={titleRef}
             variants={{
               hiddenTitle: { opacity: 0, y: 150 },
@@ -96,7 +92,7 @@ const SecondSection = (props) => {
             Earn International Certifs
           </motion.h1>
           <motion.p
-            className="text-black-50 mb-4 fs-5"
+            className={`text-center text-lg-start text-black-50 mb-4 fs-5`}
             ref={firstParagraphRef}
             variants={{
               hiddenFirstParagraph: { opacity: 0, y: 150 },
@@ -113,7 +109,7 @@ const SecondSection = (props) => {
             diam amet diam et eos. Clita erat ipsum et lorem et sit.
           </motion.p>
           <motion.p
-            className="text-black-50 mb-5 fs-5"
+            className={`text-center text-lg-start text-black-50 mb-4 fs-5`}
             ref={secondParagraphRef}
             variants={{
               hiddenSecondParagraph: { opacity: 0, y: 150 },
@@ -144,8 +140,8 @@ const SecondSection = (props) => {
                     initial="hiddenStars"
                     animate={starscontrols}
                     transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 0.8 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 0.8 },
+                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
+                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
                     }}
                   ></motion.i>
                   <motion.span
@@ -158,8 +154,8 @@ const SecondSection = (props) => {
                     initial="hiddenStars"
                     animate={starscontrols}
                     transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 0.8 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 0.8 },
+                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
+                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
                     }}
                   >
                     Skilled Instructors
@@ -176,8 +172,8 @@ const SecondSection = (props) => {
                     initial="hiddenStars"
                     animate={starscontrols}
                     transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 0.8 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 0.8 },
+                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
+                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
                     }}
                   ></motion.i>
                   <motion.span
@@ -190,11 +186,11 @@ const SecondSection = (props) => {
                     initial="hiddenStars"
                     animate={starscontrols}
                     transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 0.8 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 0.8 },
+                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
+                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
                     }}
                   >
-                    Internal Certificates
+                    International Certificates
                   </motion.span>
                 </p>
                 <p>
@@ -208,8 +204,8 @@ const SecondSection = (props) => {
                     initial="hiddenStars"
                     animate={starscontrols}
                     transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 0.8 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 0.8 },
+                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
+                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
                     }}
                   ></motion.i>
                   <motion.span
@@ -222,8 +218,8 @@ const SecondSection = (props) => {
                     initial="hiddenStars"
                     animate={starscontrols}
                     transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 0.8 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 0.8 },
+                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
+                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
                     }}
                   >
                     Online Classes
@@ -231,7 +227,7 @@ const SecondSection = (props) => {
                 </p>
               </div>
               <div className="col-sm-6">
-                <p>
+              <p>
                   <motion.i
                     className={`fa fa-star ${classes.icons} me-1`}
                     ref={starsRef}
@@ -242,8 +238,8 @@ const SecondSection = (props) => {
                     initial="hiddenStars"
                     animate={starscontrols}
                     transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 0.8 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 0.8 },
+                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
+                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
                     }}
                   ></motion.i>
                   <motion.span
@@ -256,8 +252,8 @@ const SecondSection = (props) => {
                     initial="hiddenStars"
                     animate={starscontrols}
                     transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 0.8 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 0.8 },
+                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
+                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
                     }}
                   >
                     Online Classes
@@ -274,8 +270,8 @@ const SecondSection = (props) => {
                     initial="hiddenStars"
                     animate={starscontrols}
                     transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 0.8 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 0.8 },
+                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
+                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
                     }}
                   ></motion.i>
                   <motion.span
@@ -288,11 +284,11 @@ const SecondSection = (props) => {
                     initial="hiddenStars"
                     animate={starscontrols}
                     transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 0.8 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 0.8 },
+                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
+                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
                     }}
                   >
-                    Internal Certificates
+                    International Certificates
                   </motion.span>
                 </p>
                 <p>
@@ -306,8 +302,8 @@ const SecondSection = (props) => {
                     initial="hiddenStars"
                     animate={starscontrols}
                     transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 0.8 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 0.8 },
+                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
+                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
                     }}
                   ></motion.i>
                   <motion.span
@@ -320,8 +316,8 @@ const SecondSection = (props) => {
                     initial="hiddenStars"
                     animate={starscontrols}
                     transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 0.8 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 0.8 },
+                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
+                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
                     }}
                   >
                     Skilled Instructors
@@ -331,11 +327,11 @@ const SecondSection = (props) => {
             </div>
           </div>
         </div>
-        <div className={`col-md-6 col-sm-12 ${classes.part} me-5`}>
+        <div className={`col-lg-6 col-12 ${classes.part} me-lg-5`}>
           <motion.img
             src={HomePicTwo}
             alt="error"
-            className={classes.part}
+            className={`${classes.part} img-fluid`}
             ref={imageRef}
             variants={{
               hiddenImg: { opacity: 0, y: 150 },

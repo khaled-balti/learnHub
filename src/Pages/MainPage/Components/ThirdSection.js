@@ -1,11 +1,10 @@
 import React, { useRef, useEffect } from "react";
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\bootstrap\\dist\\css\\bootstrap.min.css";
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\bootstrap\\dist\\js\\bootstrap.min.js";
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\font-awesome\\css\\font-awesome.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import HomePicThree from "../../../img/home3.jpg";
 import classes from "./FirstSection.module.css";
 import { motion, useAnimation, useInView } from "framer-motion";
-const ThirdSection = (props) => {
+
+const FirstSection = (props) => {
   const imageRef = useRef();
   const imageIsInView = useInView(imageRef, { once: true });
   const imgcontrols = useAnimation();
@@ -14,6 +13,7 @@ const ThirdSection = (props) => {
       imgcontrols.start("visibleImg");
     }
   }, [imageIsInView]);
+
   const slogonRef = useRef();
   const slogonIsInView = useInView(slogonRef, { once: true });
   const slogoncontrols = useAnimation();
@@ -22,6 +22,7 @@ const ThirdSection = (props) => {
       slogoncontrols.start("visibleSlogon");
     }
   }, [slogonIsInView]);
+
   const titleRef = useRef();
   const titleIsInView = useInView(titleRef, { once: true });
   const titlecontrols = useAnimation();
@@ -30,6 +31,7 @@ const ThirdSection = (props) => {
       titlecontrols.start("visibleTitle");
     }
   }, [titleIsInView]);
+
   const firstParagraphRef = useRef();
   const firstParagraphIsInView = useInView(firstParagraphRef, { once: true });
   const firstParagraphcontrols = useAnimation();
@@ -38,6 +40,7 @@ const ThirdSection = (props) => {
       firstParagraphcontrols.start("visibleFirstParagraph");
     }
   }, [firstParagraphIsInView]);
+
   const secondParagraphRef = useRef();
   const secondParagraphIsInView = useInView(secondParagraphRef, { once: true });
   const secondParagraphcontrols = useAnimation();
@@ -46,6 +49,7 @@ const ThirdSection = (props) => {
       secondParagraphcontrols.start("visibleSecondParagraph");
     }
   }, [secondParagraphIsInView]);
+
   const starsRef = useRef();
   const starsIsInView = useInView(starsRef, { once: true });
   const starscontrols = useAnimation();
@@ -56,15 +60,13 @@ const ThirdSection = (props) => {
   }, [starsIsInView]);
 
   return (
-    <div
-      className={`container container-fluid d-flex justify-content-center align-items-center ${classes.cont}`}
-    >
+    <div className={`container ${classes.cont} w-100`}>
       <div className="row">
-        <div className={`col-md-6 col-sm-12 ${classes.part} me-5`}>
+        <div className={`col-lg-6 col-12 ${classes.part} me-lg-5`}>
           <motion.img
             src={HomePicThree}
             alt="error"
-            className={classes.part}
+            className={`${classes.part} img-fluid`}
             ref={imageRef}
             variants={{
               hiddenImg: { opacity: 0, y: 150 },
@@ -74,16 +76,14 @@ const ThirdSection = (props) => {
             animate={imgcontrols}
             whileHover={{ scale: 1.2 }}
             transition={{
-              y: { duration: 0.4, ease: "easeInOut" },
-              opacity: { duration: 0.4, ease: "easeInOut" },
+              y: { duration: 0.4, ease: "easeInOut", delay: 1 },
+              opacity: { duration: 0.4, ease: "easeInOut", delay: 1 },
             }}
           />
         </div>
-        <div
-          className={`col-md-6 col-sm-12 ${classes.part} d-flex flex-column pt-2`}
-        >
+        <div className={`col-lg-6 col-md-12 ${classes.part} d-flex flex-column pt-2 mt-4`}>
           <motion.h5
-            className={classes.title}
+            className={`${classes.title} text-center text-lg-start`}
             ref={slogonRef}
             variants={{
               hiddenSlogon: { opacity: 0, y: 150 },
@@ -92,14 +92,14 @@ const ThirdSection = (props) => {
             initial="hiddenSlogon"
             animate={slogoncontrols}
             transition={{
-              y: { duration: 0.4, ease: "easeInOut", delay: 0.2 },
-              opacity: { duration: 0.4, ease: "easeInOut", delay: 0.2 },
+              y: { duration: 0.4, ease: "easeInOut", delay: 1.2 },
+              opacity: { duration: 0.4, ease: "easeInOut", delay: 1.2 },
             }}
           >
             work
           </motion.h5>
           <motion.h1
-            className={classes.subtitle}
+            className={`${classes.subtitle} text-center text-lg-start`}
             ref={titleRef}
             variants={{
               hiddenTitle: { opacity: 0, y: 150 },
@@ -108,14 +108,14 @@ const ThirdSection = (props) => {
             initial="hiddenTitle"
             animate={titlecontrols}
             transition={{
-              y: { duration: 0.4, ease: "easeInOut", delay: 0.4 },
-              opacity: { duration: 0.4, ease: "easeInOut", delay: 0.4 },
+              y: { duration: 0.4, ease: "easeInOut", delay: 1.4 },
+              opacity: { duration: 0.4, ease: "easeInOut", delay: 1.4 },
             }}
           >
             Work In Companies
           </motion.h1>
           <motion.p
-            className="text-black-50 mb-4 fs-5"
+            className={`text-center text-lg-start text-black-50 mb-4 fs-5`}
             ref={firstParagraphRef}
             variants={{
               hiddenFirstParagraph: { opacity: 0, y: 150 },
@@ -124,15 +124,15 @@ const ThirdSection = (props) => {
             initial="hiddenFirstParagraph"
             animate={firstParagraphcontrols}
             transition={{
-              y: { duration: 0.4, ease: "easeInOut", delay: 0.6 },
-              opacity: { duration: 0.4, ease: "easeInOut", delay: 0.6 },
+              y: { duration: 0.4, ease: "easeInOut", delay: 1.6 },
+              opacity: { duration: 0.4, ease: "easeInOut", delay: 1.6 },
             }}
           >
             Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu
             diam amet diam et eos. Clita erat ipsum et lorem et sit.
           </motion.p>
           <motion.p
-            className="text-black-50 mb-5 fs-5"
+            className={`text-center text-lg-start text-black-50 mb-4 fs-5`}
             ref={secondParagraphRef}
             variants={{
               hiddenSecondParagraph: { opacity: 0, y: 150 },
@@ -141,8 +141,8 @@ const ThirdSection = (props) => {
             initial="hiddenSecondParagraph"
             animate={secondParagraphcontrols}
             transition={{
-              y: { duration: 0.4, ease: "easeInOut", delay: 0.8 },
-              opacity: { duration: 0.4, ease: "easeInOut", delay: 0.8 },
+              y: { duration: 0.4, ease: "easeInOut", delay: 1.6 },
+              opacity: { duration: 0.4, ease: "easeInOut", delay: 1.6 },
             }}
           >
             Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu
@@ -163,8 +163,8 @@ const ThirdSection = (props) => {
                     initial="hiddenStars"
                     animate={starscontrols}
                     transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 1.0 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 1.0 },
+                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
+                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
                     }}
                   ></motion.i>
                   <motion.span
@@ -177,8 +177,8 @@ const ThirdSection = (props) => {
                     initial="hiddenStars"
                     animate={starscontrols}
                     transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 1.0 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 1.0 },
+                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
+                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
                     }}
                   >
                     Skilled Instructors
@@ -195,8 +195,8 @@ const ThirdSection = (props) => {
                     initial="hiddenStars"
                     animate={starscontrols}
                     transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 1.0 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 1.0 },
+                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
+                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
                     }}
                   ></motion.i>
                   <motion.span
@@ -209,11 +209,11 @@ const ThirdSection = (props) => {
                     initial="hiddenStars"
                     animate={starscontrols}
                     transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 1.0 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 1.0 },
+                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
+                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
                     }}
                   >
-                    Internal Certificates
+                    International Certificates
                   </motion.span>
                 </p>
                 <p>
@@ -227,8 +227,8 @@ const ThirdSection = (props) => {
                     initial="hiddenStars"
                     animate={starscontrols}
                     transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 1.0 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 1.0 },
+                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
+                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
                     }}
                   ></motion.i>
                   <motion.span
@@ -241,8 +241,8 @@ const ThirdSection = (props) => {
                     initial="hiddenStars"
                     animate={starscontrols}
                     transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 1.0 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 1.0 },
+                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
+                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
                     }}
                   >
                     Online Classes
@@ -250,7 +250,7 @@ const ThirdSection = (props) => {
                 </p>
               </div>
               <div className="col-sm-6">
-                <p>
+              <p>
                   <motion.i
                     className={`fa fa-star ${classes.icons} me-1`}
                     ref={starsRef}
@@ -261,8 +261,8 @@ const ThirdSection = (props) => {
                     initial="hiddenStars"
                     animate={starscontrols}
                     transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 1.0 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 1.0 },
+                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
+                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
                     }}
                   ></motion.i>
                   <motion.span
@@ -275,8 +275,8 @@ const ThirdSection = (props) => {
                     initial="hiddenStars"
                     animate={starscontrols}
                     transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 1.0 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 1.0 },
+                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
+                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
                     }}
                   >
                     Online Classes
@@ -293,8 +293,8 @@ const ThirdSection = (props) => {
                     initial="hiddenStars"
                     animate={starscontrols}
                     transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 1.0 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 1.0 },
+                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
+                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
                     }}
                   ></motion.i>
                   <motion.span
@@ -307,11 +307,11 @@ const ThirdSection = (props) => {
                     initial="hiddenStars"
                     animate={starscontrols}
                     transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 1.0 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 1.0 },
+                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
+                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
                     }}
                   >
-                    Internal Certificates
+                    International Certificates
                   </motion.span>
                 </p>
                 <p>
@@ -325,8 +325,8 @@ const ThirdSection = (props) => {
                     initial="hiddenStars"
                     animate={starscontrols}
                     transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 1.0 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 1.0 },
+                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
+                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
                     }}
                   ></motion.i>
                   <motion.span
@@ -339,8 +339,8 @@ const ThirdSection = (props) => {
                     initial="hiddenStars"
                     animate={starscontrols}
                     transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 1.0 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 1.0 },
+                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
+                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
                     }}
                   >
                     Skilled Instructors
@@ -354,4 +354,4 @@ const ThirdSection = (props) => {
     </div>
   );
 };
-export default ThirdSection;
+export default FirstSection;

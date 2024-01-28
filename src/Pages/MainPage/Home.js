@@ -24,6 +24,7 @@ const Home = () => {
       initial="hidden"
       transition={{ duration: 0.3 }}
       animate={controls}
+      className="overflow-hidden d-flex flex-column"
     >
       <Carousel />
       <ServiceBoad />

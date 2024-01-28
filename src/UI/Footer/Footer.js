@@ -11,9 +11,9 @@ import { motion } from "framer-motion";
 const Footer = () => {
     return (
         <Fragment>
-            <div className={classes.background}>
-                <div className="row">
-                    <div className="col-md-3 col-sm-5 d-flex flex-column justify-content-center">
+            <div className={`container-fluid ${classes.background} pt-5 ps-5 pe-5`}>
+                <div className="row mx-auto">
+                    <div className="col-12 col-lg-6 col-xl-3 d-flex flex-column justify-content-center mb-4">
                         <h5 className="ms-4 fs-4">Quick Link</h5>
                         <ul className={classes.list}>
                             <li className={classes['list-item']}>&gt; About Us</li>
@@ -23,7 +23,7 @@ const Footer = () => {
                             <li className={classes['list-item']}>&gt; FAQs & Help</li>
                         </ul>
                     </div>
-                    <div className="col-md-3 col-sm-5">
+                    <div className="col-12 col-lg-6 col-xl-3 mb-4">
                         <h2 className="ms-4 fs-4 mb-3">Contact</h2>
                         <ul className={classes.list}>
                             <li className="mb-3"><Location/> 123 Street, New York, USA</li>
@@ -37,7 +37,7 @@ const Footer = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className="col-md-3 col-sm-7">
+                    <div className="col-12 col-lg-6 col-xl-3 mb-4">
                         <h2 className="fs-4 mb-4">Gallery</h2>
                         <div className={classes.gallery}>
                             <div className="row g-2 mb-2">
@@ -64,19 +64,19 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
-                    <div className={`col-md-3 col-sm-7 d-flex flex-column ${classes.letter}`}>
+                    <div className="col-12 col-lg-6 col-xl-3 d-flex flex-column mb-4">
                         <h2 className="fs-4 mb-4">NewsLetter</h2>
                         <p className="mb-4">Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                        <form className={`bg-light ${classes.form}`}>
-                            <input type="text" placeholder="Your email"></input>
+                        <form className={`bg-light ${classes.form} w-75 w-sm-25 px-2`}>
+                            <input type="text" placeholder="Your email" className="w-100"></input>
                             <button>SignUp</button>
                         </form>
                     </div>
                 </div>
             </div>
-            <footer className={`${classes.footer}`}>
+            <footer className={`container-fluid d-none d-lg-block ${classes.footer}`}>
                 <p><i className="fa fa-copyright"></i>Your Site Name, All Right Reserved. Designed By HTML Codex</p>
-                <ul className={`${classes.list} d-flex`}>
+                <ul className={`d-flex justify-content-center ${classes.list}`}>
                     <li className="me-3">Home</li>
                     <li className="me-3">Cookies</li>
                     <li className="me-3">Help</li>

@@ -9,10 +9,11 @@ import Courses from './Pages/CoursesPage/Courses';
 import Team from './Pages/TeamPage/Team';
 import Contact from './Pages/ContactPage/Contact';
 import Login from './Pages/LoginPage/Login';
+import { instructorsLoader as InsructorsLoader } from './Pages/AboutPage/About';
 const router = createBrowserRouter([
   { path: '/' , element: <RootLayout />, errorElement: <Error/>, children: [
     {index: true , element: <Home />},
-    {path: 'about', element: <About />},
+    {path: 'about', element: <About />, loader: InsructorsLoader},
     {path: 'courses', element: <Courses />},
     {path: 'team', element: <Team />},
     {path: 'contact', element: <Contact />},
