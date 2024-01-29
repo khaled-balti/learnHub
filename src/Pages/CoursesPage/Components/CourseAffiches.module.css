@@ -1,0 +1,22 @@
+.container1{
+    width: 40%;
+    transform: translateY(-5px);
+}
+.container2 {
+    width: 60%;
+}
+.container3 {
+    height: 50%;
+}
+.container4 {
+    height: 50%;
+}
+.container5 {
+    width: 50%;
+}
+.container6 {
+    width: 50%;
+}
+.image {
+    height: 30%;
+}

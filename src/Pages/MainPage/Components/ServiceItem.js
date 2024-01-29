@@ -25,7 +25,7 @@ const ServiceItem = forwardRef((props, ref) => {
         setIsHovered(false);
       }}
       whileHover={{ backgroundColor: "#06bbcc", color: "white" }}
-      className={`${classes.item} col-lg-3 col-sm-6 col-md-6 col-12`}
+      className={`${classes.item} col-lg-3 col-sm-6 col-md-6 col-12 text-center`}
       variants={props.variants}
       initial={props.initial}
       animate={props.animate}

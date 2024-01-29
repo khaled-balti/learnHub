@@ -1,0 +1,19 @@
+.caption {
+    background-color: #f0fbfc;
+    color: #333;
+}
+.stars {
+    color: #06bbcc;
+}
+.footer {
+    border-right: 1px solid #999;
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+}

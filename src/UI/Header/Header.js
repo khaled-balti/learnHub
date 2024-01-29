@@ -15,7 +15,7 @@ const Header = (props) => {
     }
   }, [titleIsInView])
   return (
-    <div className={`${classes.cont} container-fluid w-100 p-0`}>
+    <div className={`${classes.cont} container-fluid w-100 p-0 mb-5`}>
       <div className={classes.caption}>
         <motion.h1
           ref={titleRef}
@@ -28,7 +28,7 @@ const Header = (props) => {
           animate={titleControls}
           transition={{ duration: 1, ease: "easeInOut" }}
         >
-          About US
+          {props.text}
         </motion.h1>
         <ButtonRead>Read More</ButtonRead>
       </div>

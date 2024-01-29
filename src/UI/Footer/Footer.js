@@ -74,9 +74,9 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <footer className={`container-fluid d-none d-lg-block ${classes.footer}`}>
-                <p><i className="fa fa-copyright"></i>Your Site Name, All Right Reserved. Designed By HTML Codex</p>
-                <ul className={`d-flex justify-content-center ${classes.list}`}>
+            <footer className={`container-fluid d-none d-md-flex ${classes.footer}`}>
+                <p className=""><i className="fa fa-copyright"></i><span>Your Site Name, All Right Reserved. Designed By HTML Codex</span></p>
+                <ul className={`d-flex justify-content-center align-items-center ${classes.list}`}>
                     <li className="me-3">Home</li>
                     <li className="me-3">Cookies</li>
                     <li className="me-3">Help</li>

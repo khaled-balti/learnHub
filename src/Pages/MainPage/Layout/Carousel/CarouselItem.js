@@ -7,7 +7,7 @@ const CarouselItem = (props) => {
   return (
     <div className={`carousel-caption ${classes.cont}`}>
       <h4 className={classes.title}>best online courses</h4>
-      <h1 className={`${classes["big-title"]} fs-sm-2`}>{props.title}</h1>
+      <h1 className={`${classes["big-title"]}`}>{props.title}</h1>
       <p className={`${classes.description}`}>{props.description}</p>
       <div className="d-flex">
         <Button type="button" func="blue">

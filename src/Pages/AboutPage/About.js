@@ -13,7 +13,7 @@ const About = () => {
   const data = datas.instructors
   return (
     <Fragment>
-      <Header />
+      <Header text="About Us"/>
       <ServiceBoad />
       <Section />
       <Suspense fallback={<Spinner/>}>
