@@ -43,6 +43,25 @@ const CourseAffiches = (props) => {
             image4Control.start("visible4")
         }
     }, [image4IsInView])
+    const courses = props.courses
+    let web=0
+    let design=0
+    let mobile=0
+    let montage=0
+    for (const course of courses) {
+        if (course.theme === "UI-UX design") {
+            design++
+        }
+        else if (course.theme === "web development") {
+            web++
+        }
+        else if (course.theme === "mobile development") {
+            mobile++
+        }
+        else {
+            montage++
+        }
+    }
     return (
         <Fragment>
             <Title h5="Cathegories" h1="Courses Cathegories" delay5={0.8} delay1={1.2} />
@@ -51,40 +70,40 @@ const CourseAffiches = (props) => {
                     <div className={`container d-flex flex-column justfy-content-between align-items-center ${classes.container2} m-0 p-0 me-3`}>
                         <motion.div className={`container ${classes.container3} m-0 mb-3 p-0 overflow-hidden position-relative`} variants={{hidden1: {scale: 0}, visible1: {scale: 1}}} initial="hidden1" animate={image1Control} ref={image1Ref} transition={{duration: 0.4}}>
                             <motion.img src={Course1} whileHover={{scale: 1.1 , transition: {duration: 0.3}}} alt="error" className="img-fluid" ></motion.img>
-                            <CourseCaption title="Web Design" courses="49 Courses"/>
+                            <CourseCaption title="Web Design" courses={web + '  courses'}/>
                         </motion.div>
                         <div className={`container d-flex justfy-content-between align-items-center m-0 p-0 mb-3 ${classes.container4}`}>
                             <motion.div className={`container ${classes.container5} overflow-hidden position-relative m-0 p-0 me-3`} variants={{hidden2: {scale: 0}, visible2: {scale: 1}}} initial="hidden2" animate={image2Control} ref={image2Ref} transition={{duration: 0.4 , delay: 0.2}}>
                                 <motion.img whileHover={{scale: 1.1 , transition: {duration: 0.3}}} src={Course2} alt="error" className="img-fluid"></motion.img>
-                                <CourseCaption title="Graphic Design" courses="49 Courses"/>
+                                <CourseCaption title="Graphic Design" courses={design + '  courses'}/>
                             </motion.div>
                             <motion.div className={`container ${classes.container6} overflow-hidden position-relative m-0 p-0`} variants={{hidden3: {scale: 0}, visible3: {scale: 1}}} initial="hidden3" animate={image3Control} ref={image3Ref} transition={{duration: 0.4 , delay: 0.4}}>
                                 <motion.img whileHover={{scale: 1.1 , transition: {duration: 0.3}}} src={Course3} alt="error" className="img-fluid"></motion.img>
-                                <CourseCaption title="Video Editing" courses="49 Courses"/>
+                                <CourseCaption title="Video Editing" courses={montage + '  courses'}/>
                             </motion.div>
                         </div>
                     </div>
                     <motion.div className={`container ${classes.container1} overflow-hidden position-relative m-0 p-0`} variants={{hidden4: {scale: 0}, visible4: {scale: 1}}} initial="hidden4" animate={image4Control} ref={image4Ref} transition={{duration: 0.4 , delay: 1}}>
                         <motion.img src={Course4} whileHover={{scale: 1.1 , transition: {duration: 0.3}}} alt="error" className={`img-fluid`} ></motion.img>
-                        <CourseCaption title="Onine Marketing" courses="49 Courses"/>
+                        <CourseCaption title="Onine Marketing" courses={mobile + '  courses'}/>
                     </motion.div>
                 </div>
                 <div className="row mx-auto d-block d-md-none">
                         <div className={`container col-12 overflow-hidden position-relative mb-3`}>
                             <img src={Course1} alt="error" className="img-fluid" ></img>
-                            <CourseCaption title="Web Design" courses="49 Courses"/>
+                            <CourseCaption title="Web Design" courses={web + '  courses'}/>
                         </div>
                         <div className={`container col-12 overflow-hidden position-relative mb-3`}>
                             <img src={Course2} alt="error" className="img-fluid"></img>
-                            <CourseCaption title="Graphic Design" courses="49 Courses"/>
+                            <CourseCaption title="Graphic Design" courses={design + '  courses'}/>
                         </div>
                         <div className={`container col-12 overflow-hidden position-relative mb-3`}>
                             <img src={Course3} alt="error" className="img-fluid"></img>
-                            <CourseCaption title="Video Editing" courses="49 Courses"/>
+                            <CourseCaption title="Video Editing" courses={montage + '  courses'}/>
                         </div>
                         <div className={`container col-12 overflow-hidden position-relative mb-3`}>
                             <img src={Course4} alt="error" className={`img-fluid`} ></img>
-                            <CourseCaption title="Onine Marketing" courses="49 Courses"/>
+                            <CourseCaption title="Onine Marketing" courses={mobile + '  courses'}/>
                         </div>
                     </div>
             </div>

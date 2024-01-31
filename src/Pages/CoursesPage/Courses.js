@@ -9,12 +9,14 @@ import PopularCourses from "./Components/PopularCourses";
 import { json, useLoaderData } from "react-router-dom";
 const Courses = () => {
     const data = useLoaderData()
+    const coursesArray = data.coursesArray
+    const popularCourses = data.popularCourses
     return (
         <Fragment>
             <Header text="Courses"/>
-            <CourseAffiches />
+            <CourseAffiches courses={coursesArray} />
             <Title h1="Popular Courses" h5="Courses"/>
-            <PopularCourses courses={data}/>
+            <PopularCourses courses={popularCourses}/>
         </Fragment>
     )
 }
@@ -22,17 +24,17 @@ export default Courses
 export async function popularCoursesLoader () {
     const response = await fetch("https://elearning-react-9cbb7-default-rtdb.firebaseio.com/courses.json")
     if (!response.ok) {
-        throw json({ message: "could not fetch fetch insructors" });
+        throw json({ message: "could not fetch popular courses" });
     }
     else {
-        const courses = await response.json()
+        const allCourses = await response.json()
         const coursesArray = [];
-        for (const [key, value] of Object.entries(courses)) {
+        for (const [key, value] of Object.entries(allCourses)) {
             coursesArray.push(value);
         }
         const popularCourses = coursesArray.filter((course) => {
             return course.popularity === "popular"
         })
-        return popularCourses
+        return {coursesArray, popularCourses}
     }
 }
