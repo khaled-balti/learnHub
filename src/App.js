@@ -10,12 +10,14 @@ import Team from './Pages/TeamPage/Team';
 import Contact from './Pages/ContactPage/Contact';
 import Login from './Pages/LoginPage/Login';
 import { instructorsLoader as InsructorsLoader } from './Pages/AboutPage/About';
+import { popularCoursesLoader } from './Pages/CoursesPage/Courses';
+import { loadedAllInstructors } from './Pages/TeamPage/Team'
 const router = createBrowserRouter([
   { path: '/' , element: <RootLayout />, errorElement: <Error/>, children: [
     {index: true , element: <Home />},
     {path: 'about', element: <About />, loader: InsructorsLoader},
-    {path: 'courses', element: <Courses />},
-    {path: 'team', element: <Team />},
+    {path: 'courses', element: <Courses />, loader: popularCoursesLoader},
+    {path: 'team', element: <Team />, loader: loadedAllInstructors},
     {path: 'contact', element: <Contact />},
     {path: 'login', element: <Login />},
   ]}

@@ -5,15 +5,34 @@ import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\font-
 import Header from "../../UI/Header/Header";
 import CourseAffiches from "./Components/CourseAffiches";
 import Title from "../../UI/Title/Title";
-import PopularCourses from "./Components/PopuarCourses";
+import PopularCourses from "./Components/PopularCourses";
+import { json, useLoaderData } from "react-router-dom";
 const Courses = () => {
+    const data = useLoaderData()
     return (
         <Fragment>
             <Header text="Courses"/>
             <CourseAffiches />
             <Title h1="Popular Courses" h5="Courses"/>
-            <PopularCourses/>
+            <PopularCourses courses={data}/>
         </Fragment>
     )
 }
 export default Courses
+export async function popularCoursesLoader () {
+    const response = await fetch("https://elearning-react-9cbb7-default-rtdb.firebaseio.com/courses.json")
+    if (!response.ok) {
+        throw json({ message: "could not fetch fetch insructors" });
+    }
+    else {
+        const courses = await response.json()
+        const coursesArray = [];
+        for (const [key, value] of Object.entries(courses)) {
+            coursesArray.push(value);
+        }
+        const popularCourses = coursesArray.filter((course) => {
+            return course.popularity === "popular"
+        })
+        return popularCourses
+    }
+}
