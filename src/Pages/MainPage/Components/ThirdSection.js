@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import HomePicThree from "../../../img/home3.jpg";
 import classes from "./FirstSection.module.css";
 import { motion, useAnimation, useInView } from "framer-motion";

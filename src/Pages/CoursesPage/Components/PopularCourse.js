@@ -1,13 +1,14 @@
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\bootstrap\\dist\\css\\bootstrap.min.css";
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\bootstrap\\dist\\js\\bootstrap.min.js";
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\font-awesome\\css\\font-awesome.min.css";
 import React, { useEffect, useRef } from "react";
 import Professor from "../../../UI/Professor/Professor";
 import Clock from "../../../UI/Clock/Clock";
 import Student from "../../../UI/Student/Student";
 import classes from "./popularCourse.module.css";
 import { motion , useInView , useAnimation } from "framer-motion";
+import {useDispatch} from 'react-redux'
+import { getInstructors } from "../../../store/actions/instructorsActions";
+import { Link } from "react-router-dom";
 const PopularCourse = (props) => {
+  const user = props.user
   function formatCurrency (amount, currencyCode = 'USD') {
     const formatter = new Intl.NumberFormat('en-US', {
       style: 'currency',
@@ -15,23 +16,24 @@ const PopularCourse = (props) => {
     });
     return formatter.format(amount);
   }
+  const dispatch = useDispatch()
   const courseRef = useRef()
   const courseIsInView = useInView(courseRef, {once: true})
   const controls = useAnimation()
+  useEffect(() => {
+    dispatch(getInstructors())
+  }, [dispatch])
   useEffect(() => {
     if (courseIsInView) {
       controls.start("visible")
     }
   },[courseIsInView])
-  console.log(props.title)
-  console.log(props.price)
   return (
-    <div className="col-12 col-md-6 col-xl-4">
-      <motion.div className={`container d-flex flex-column justify-content-between align-items-center p-3 mb-4 ${classes.card}`} variants={{hidden: {opacity: 0, y: 150} , visible: {opacity: 1, y: 0}}} initial="hidden" ref={courseRef} animate={controls} transition={{duration: 0.4, ease: 'easeInOut' , delay: props.delay}}>
-        <div className={`container p-0 overflow-hidden ${classes.image}`}>
+    <div className={`col-12 col-md-6 col-xl-4`}>
+      <motion.div className={`container d-flex flex-column justify-content-between align-items-center px-3 py-3 mb-4 ${classes.card}`} variants={{hidden: {opacity: 0, y: 150} , visible: {opacity: 1, y: 0}}} initial="hidden" ref={courseRef} animate={controls} transition={{duration: 0.4, ease: 'easeInOut' , delay: props.delay}}>
+        <Link to={`${user ? `/courses/details/${props.id}` : `/auth`}`} className={`${classes.image} w-100 container p-0 overflow-hidden`}>
           <motion.img src={require(`../../../img/${props.image}`)} alt="error" className={`m-0 img-fluid ${classes.img}`} whileHover={{scale: 1.1, transition: {duration: 0.3}}}/>
-          {/* <div></div> */}
-        </div>
+        </Link>
         <div className={`container ${classes.caption}`}>
           <h2 className="text-center mt-3">{formatCurrency(props.price)}</h2>
           <div className={`text-center mt-1 mb-3 ${classes.stars}`}>
@@ -42,12 +44,16 @@ const PopularCourse = (props) => {
               <i key={i} className={`fa fa-star me-1 text-black-50`}></i>
             ))}
           </div>
-          <div className={`container-fluid px-0 text-center fs-5 fw-semibold d-flex justify-content-center align-items-start ${classes.title}`}>{props.title}</div>
-          <div className={`container-fluid p-0`}>
+          <div className={`container-fluid px-0 mb-2 text-center fs-5 fw-semibold d-flex justify-content-center align-items-start ${classes.title}`}>{props.title}</div>
+          {user && <div className={`d-flex justify-content-center align-items-center mb-3`} style={{width: '70%'}}>
+            <button className={`d-flex justify-content-center align-items-center text-white ${classes.button}`}>Add To Cart</button>
+          </div>
+          }
+          <div className={`container-fluid pt-2 ${classes.bordered}`}>
             <div className="row">
-              <div className={`${classes.font} ${classes.footer} container col-4 m-0 mb-2 d-flex justify-content-center align-items-center`}><Professor/><span>{props.professor}</span></div>
-              <div className={`${classes.font} ${classes.footer} container col-4 mb-2 d-flex justify-content-center align-items-center`}><Student/><span>30 Students</span></div>
-              <div className={`${classes.font} container col-4 d-flex justify-content-center mb-2 align-items-center`}><Clock/><span>1.49 Hrs</span></div>
+              <div className={`${classes.font} ${classes.footer} container col-3 m-0 mb-2 d-flex justify-content-center align-items-center`}><Professor/><span>{props.creator.firstName}</span></div>
+              <div className={`${classes.font} ${classes.footer} container col-5 mb-2 d-flex justify-content-center align-items-center`}><Student/><span>30 Students</span></div>
+              <div className={`${classes.font} container col-4 d-flex justify-content-center align-items-center`}><Clock/><span>1.49 Hrs</span></div>
             </div>
           </div>
         </div>

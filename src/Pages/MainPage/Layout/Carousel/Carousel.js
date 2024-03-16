@@ -1,6 +1,4 @@
 import React from "react";
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\bootstrap\\dist\\css\\bootstrap.min.css";
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\bootstrap\\dist\\js\\bootstrap.min.js";
 import Carousel1 from "../../../../img/carousel-1.jpg";
 import Carousel2 from "../../../../img/carousel-2.jpg";
 import CarouselItem from "./CarouselItem";

@@ -1,8 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import classes from "./CarouselItem.module.css";
 import Button from "../../../../UI/Button/Button";
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\bootstrap\\dist\\css\\bootstrap.min.css";
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\bootstrap\\dist\\js\\bootstrap.min.js";
 import { motion, useInView, useAnimation } from "framer-motion";
 const CarouselAnimatedItem = (props) => {
   const refSubtitle = useRef();
@@ -57,6 +55,7 @@ const CarouselAnimatedItem = (props) => {
         <Button
           type="button"
           func="blue"
+          link="/readmore"
           ref={refBlueBtn}
           hiddenBtn={{ x: -80 }}
           visibleBtn={{ x: 0 }}
@@ -72,6 +71,7 @@ const CarouselAnimatedItem = (props) => {
         <Button
           type="button"
           func="white"
+          link="/auth"
           hiddenBtn={{ x: 80 }}
           visibleBtn={{ x: 0 }}
           variants={{ hiddenBtn: { x: 80 }, visibleBtn: { x: 0 } }}

@@ -1,10 +1,8 @@
 import React, { useRef, useEffect } from "react";
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\bootstrap\\dist\\css\\bootstrap.min.css";
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\bootstrap\\dist\\js\\bootstrap.min.js";
 import classes from "./Header.module.css";
-import HomePicOne from "../../img/carousel-1.jpg";
 import ButtonRead from "../Button/ButtonRead";
 import { motion, useAnimation, useInView } from "framer-motion";
+import Pic from "../../img/carousel-1.jpg"
 const Header = (props) => {
   const titleRef = useRef();
   const titleIsInView = useInView(titleRef, { once: true });
@@ -33,7 +31,7 @@ const Header = (props) => {
         <ButtonRead>Read More</ButtonRead>
       </div>
       <div className={`container-fluid mx-0 w-100 p-0 ${classes.backim}`}>
-        <img src={HomePicOne} alt="error" className={`${classes.filter} ${classes.cont} img-fluid`} />
+        <img src={props.pic} alt="error" className={`${classes.filter} ${classes.cont} img-fluid`} />
       </div>
     </div>
   );

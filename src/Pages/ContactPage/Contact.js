@@ -1,10 +1,13 @@
-import React from "react"
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\bootstrap\\dist\\css\\bootstrap.min.css";
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\bootstrap\\dist\\js\\bootstrap.min.js";
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\font-awesome\\css\\font-awesome.min.css";
+import React, { Fragment } from "react"
+import Header from "../../UI/Header/Header"
+import Panel from "./Components/Panel"
+import HomePic1 from "../../img/carousel-1.jpg"
 const Contact = () => {
     return (
-        <h1>this Contact Pages</h1>
+        <Fragment>
+            <Header text="Contact Us" pic={HomePic1} />
+            <Panel />
+        </Fragment>
     )
 }
 export default Contact

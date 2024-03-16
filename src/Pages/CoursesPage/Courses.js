@@ -1,40 +1,28 @@
-import React, { Fragment } from "react"
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\bootstrap\\dist\\css\\bootstrap.min.css";
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\bootstrap\\dist\\js\\bootstrap.min.js";
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\font-awesome\\css\\font-awesome.min.css";
+import React, { useEffect, Fragment } from "react"
 import Header from "../../UI/Header/Header";
 import CourseAffiches from "./Components/CourseAffiches";
 import Title from "../../UI/Title/Title";
+import { useDispatch, useSelector } from "react-redux";
+import { getCourses, getPopularCourses } from "../../store/actions/courseAction";
+import HomePic1 from "../../img/carousel-1.jpg"
+import { useOutletContext } from "react-router";
 import PopularCourses from "./Components/PopularCourses";
-import { json, useLoaderData } from "react-router-dom";
-const Courses = () => {
-    const data = useLoaderData()
-    const coursesArray = data.coursesArray
-    const popularCourses = data.popularCourses
+const Courses = (props) => {
+    const [user] = useOutletContext()
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(getCourses())
+        dispatch(getPopularCourses())
+    }, [dispatch])
+    const courses = useSelector((state) => state.courseReducer.courses)
+    const popularCourses = useSelector((state) => state.courseReducer.popularCourses)
     return (
         <Fragment>
-            <Header text="Courses"/>
-            <CourseAffiches courses={coursesArray} />
+            <Header text="Courses" pic={HomePic1} />
+            <CourseAffiches courses={courses} />
             <Title h1="Popular Courses" h5="Courses"/>
-            <PopularCourses courses={popularCourses}/>
+            <PopularCourses courses={popularCourses} user={user} />
         </Fragment>
     )
 }
 export default Courses
-export async function popularCoursesLoader () {
-    const response = await fetch("https://elearning-react-9cbb7-default-rtdb.firebaseio.com/courses.json")
-    if (!response.ok) {
-        throw json({ message: "could not fetch popular courses" });
-    }
-    else {
-        const allCourses = await response.json()
-        const coursesArray = [];
-        for (const [key, value] of Object.entries(allCourses)) {
-            coursesArray.push(value);
-        }
-        const popularCourses = coursesArray.filter((course) => {
-            return course.popularity === "popular"
-        })
-        return {coursesArray, popularCourses}
-    }
-}

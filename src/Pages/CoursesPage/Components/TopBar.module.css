@@ -1,0 +1,23 @@
+.input {
+    width: 99%;
+    height: 50px;
+    border: none;
+}
+.cont {
+    width: 80%;
+    border-bottom: 1px solid black;
+}
+.cont2 {
+    width: 15%;
+}
+.input::placeholder {
+    font-weight: 100;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.button,.button:hover {
+    border: 1px solid black;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,7 +1,7 @@
 .caption {
     background-color: #f0fbfc;
     color: #333;
-    height: 50%;
+    height: 60%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -18,7 +18,7 @@
     height: 100%;
 }
 .image {
-    height: 50%;
+    height: 40%;
 }
 .img {
     height: 100%;
@@ -27,7 +27,13 @@
 .card {
     height: 500px;
 }
-.title {
-    border-bottom: 1px solid #999;
-    height: 80px;
+.bordered {
+    border-top: 1px solid #999;
+}
+.button {
+    border-radius: 5px;
+    background-color: #06bbcc;
+    width: 120px;
+    height: 40px;
+    border: none;
 }

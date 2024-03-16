@@ -1,0 +1,26 @@
+.background {
+    background-color: #06bbcc;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+.container {
+    width: 260px;
+}
+.container2 {
+    width: 190px;
+}
+.container3 {
+    width: 215px;
+}
+.title {
+    color: #06bbcc;
+    font-weight: 500;
+}
+.icon {
+    color: white;
+    font-size: 20px;
+}

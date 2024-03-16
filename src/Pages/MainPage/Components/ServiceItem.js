@@ -1,5 +1,4 @@
 import React, { forwardRef, useEffect, useState } from "react";
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\bootstrap\\dist\\css\\bootstrap.min.css";
 import { motion } from "framer-motion";
 import classes from "./ServiceItem.module.css";
 

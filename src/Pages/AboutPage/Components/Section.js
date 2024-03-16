@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import AboutImage from "../../../img/about.jpg";
 import classes from "./Section.module.css";
 import { motion, useAnimation, useInView } from "framer-motion";

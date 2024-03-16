@@ -1,8 +1,7 @@
 import React from "react";
 import classes from "./CarouselItem.module.css";
 import Button from "../../../../UI/Button/Button";
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\bootstrap\\dist\\css\\bootstrap.min.css";
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\bootstrap\\dist\\js\\bootstrap.min.js";
+import { Link } from "react-router-dom";
 const CarouselItem = (props) => {
   return (
     <div className={`carousel-caption ${classes.cont}`}>
@@ -10,10 +9,10 @@ const CarouselItem = (props) => {
       <h1 className={`${classes["big-title"]}`}>{props.title}</h1>
       <p className={`${classes.description}`}>{props.description}</p>
       <div className="d-flex">
-        <Button type="button" func="blue">
+        <Button type="button" func="blue" link="/readmore">
           Read More
         </Button>
-        <Button type="button" func="white">
+        <Button type="button" func="white" link="/auth">
           Join Now
         </Button>
       </div>

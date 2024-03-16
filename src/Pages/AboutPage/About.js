@@ -1,50 +1,24 @@
-import React , {Fragment, Suspense} from "react";
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\bootstrap\\dist\\css\\bootstrap.min.css";
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\bootstrap\\dist\\js\\bootstrap.min.js";
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\font-awesome\\css\\font-awesome.min.css";
+import React , {Fragment, useEffect} from "react";
 import Header from "../../UI/Header/Header";
 import Section from "./Components/Section";
 import ServiceBoad from "../MainPage/Components/ServiceBoard";
-import { Await, defer, json, useLoaderData } from "react-router-dom";
 import Instructors from "./Components/Instructors";
-import Spinner from "../../UI/Spinner/Spinner"
+import { getPopularInstructors } from '../../store/actions/instructorsActions';
+import { useDispatch, useSelector } from "react-redux";
+import HomePic1 from "../../img/carousel-1.jpg"
 const About = () => {
-  const datas = useLoaderData()
-  const data = datas.instructors
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getPopularInstructors())
+  }, [dispatch])
+  const popularInstructors = useSelector((state) => state.instructorReducer.popularInstructors)
   return (
     <Fragment>
-      <Header text="About Us"/>
+      <Header text="About Us" pic={HomePic1}/>
       <ServiceBoad />
       <Section />
-      <Suspense fallback={<Spinner/>}>
-        <Await resolve={data}>
-          {(loadedInstructors) => <Instructors inst={loadedInstructors}/>}
-        </Await>
-      </Suspense>
+      <Instructors inst={popularInstructors}/>
     </Fragment>
   );
 };
 export default About;
-export async function loadInstructorsHandler() {
-  const response = await fetch(
-    "https://elearning-react-9cbb7-default-rtdb.firebaseio.com/instuctors.json"
-  );
-  if (!response.ok) {
-    throw json({ message: "could not fetch fetch insructors" });
-  } else {
-    const data = await response.json();
-    const popularInstructors = [];
-    for (const [key, value] of Object.entries(data)) {
-      popularInstructors.push(value);
-    }
-    const inst = popularInstructors.filter(
-      (instruction) => instruction.popularity === "popular"
-    );
-    return inst;
-  }
-}
-export function instructorsLoader() {
-  return defer({
-    instructors: loadInstructorsHandler(),
-  })
-}

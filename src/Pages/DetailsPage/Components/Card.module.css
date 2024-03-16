@@ -1,0 +1,18 @@
+.cont1 {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    box-shadow: 0 1px 2px 1px #ccc;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.cont2 {
+    width: '100%';
+    height: '75%';
+    background-color: '#eefafc';
+}
+.price {
+    font-size: 24px;
+    color: #06bbcc;
+    font-weight: 600;
+}

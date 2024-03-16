@@ -1,8 +1,7 @@
 import React, { forwardRef , useEffect } from "react";
 import classes from "./Button.module.css";
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\bootstrap\\dist\\css\\bootstrap.min.css";
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\bootstrap\\dist\\js\\bootstrap.min.js";
-import { motion} from "framer-motion";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 const Button = forwardRef((props, ref) => {
     const btnIsInView = props.btnIsInView
     const controls = props.controls
@@ -13,19 +12,21 @@ const Button = forwardRef((props, ref) => {
         }
       }, [btnIsInView]);
   return (
-    <motion.button
-      ref={ref}
-      type={props.type}
-      className={`${classes.button} ${
-        props.func === "blue" ? classes.blue : classes.white
-      }`}
-      variants={props.variants}
-      animate={props.animate}
-      transition={props.transition}
-      initial={props.initial}
-    >
-      {props.children}
-    </motion.button>
+    <Link to={props.link}>
+      <motion.button
+        ref={ref}
+        type={props.type}
+        className={`${classes.button} ${
+          props.func === "blue" ? classes.blue : classes.white
+        }`}
+        variants={props.variants}
+        animate={props.animate}
+        transition={props.transition}
+        initial={props.initial}
+      >
+        {props.children}
+      </motion.button>
+    </Link>
   );
 });
 export default Button;

@@ -1,7 +1,4 @@
 import React, { Fragment } from "react"
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\bootstrap\\dist\\css\\bootstrap.min.css";
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\bootstrap\\dist\\js\\bootstrap.min.js";
-import "C:\\Users\\User\\applications_Udemy\\elearning-site\\node_modules\\font-awesome\\css\\font-awesome.min.css"
 import Location from "../Location-Dot/Location-dot";
 import FooterPicOne from "../../img/course-1.jpg"
 import FooterPicTwo from "../../img/course-2.jpg"
@@ -26,7 +23,7 @@ const Footer = () => {
                     <div className="col-12 col-lg-6 col-xl-3 mb-4">
                         <h2 className="ms-4 fs-4 mb-3">Contact</h2>
                         <ul className={classes.list}>
-                            <li className="mb-3"><Location/> 123 Street, New York, USA</li>
+                            <li className="mb-3"><Location width='12px' height='17px' /><span className="ms-3"> 123 Street, New York, USA</span></li>
                             <li><i className="fa fa-phone mb-3 me-3"></i> +012 345 67890</li>
                             <li><i className="fa fa-envelope mb-3 me-3" ></i> info@exemple.com</li>
                             <li className="d-flex">
