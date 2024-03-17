@@ -22,6 +22,7 @@ const Courses = ({user}) => {
         delay={0.4 * (index + 1)}
         column="col-xl-6"
         user={user}
+        id={course._id}
       />
   ));
   return (

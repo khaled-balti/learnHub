@@ -4,6 +4,8 @@ const CourseSlice = createSlice({
     initialState: {
         courses: [],
         popularCourses: [],
+        cartCourses: [],
+        cartCoursesNumber: 0,
         course: null,
     },
     reducers: {
@@ -15,6 +17,18 @@ const CourseSlice = createSlice({
         },
         fetchCourseReducer(state, action) {
             state.course = action.payload.data
+        },
+        fetchCartCourses(state, action) {
+            state.cartCoursesNumber = action.payload.data.nombreCourses
+            state.cartCourses = action.payload.data.courses
+        },
+        addCartCourses(state, action) {
+            state.cartCoursesNumber =+ 1
+            state.cartCourses.push(action.payload.data)
+        },
+        deleteCartCourse(state, action) {
+            state.cartCoursesNumber -= 1
+            state.cartCourses = state.cartCourses.filter(course => course !== action.payload.data)
         }
     }
 })

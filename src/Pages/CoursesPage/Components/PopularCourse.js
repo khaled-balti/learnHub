@@ -6,8 +6,11 @@ import classes from "./popularCourse.module.css";
 import { motion , useInView , useAnimation } from "framer-motion";
 import {useDispatch} from 'react-redux'
 import { getInstructors } from "../../../store/actions/instructorsActions";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+// import { addToCart } from "../../../api";
+import { deleteCourseFromCart, addCourseToCart } from "../../../store/actions/courseAction";
 const PopularCourse = (props) => {
+  const navigate = useNavigate()
   const user = props.user
   function formatCurrency (amount, currencyCode = 'USD') {
     const formatter = new Intl.NumberFormat('en-US', {
@@ -28,12 +31,20 @@ const PopularCourse = (props) => {
       controls.start("visible")
     }
   },[courseIsInView])
+  const addToCartHandler = async(e) => {
+    e.preventDefault()
+    dispatch(addCourseToCart(props.id))
+  }
+  const deleteFromCartHandler = async(e) => {
+    e.preventDefault()
+    dispatch(deleteCourseFromCart(props.id, navigate))
+  }
   return (
     <div className={`col-12 col-md-6 col-xl-4`}>
       <motion.div className={`container d-flex flex-column justify-content-between align-items-center px-3 py-3 mb-4 ${classes.card}`} variants={{hidden: {opacity: 0, y: 150} , visible: {opacity: 1, y: 0}}} initial="hidden" ref={courseRef} animate={controls} transition={{duration: 0.4, ease: 'easeInOut' , delay: props.delay}}>
-        <Link to={`${user ? `/courses/details/${props.id}` : `/auth`}`} className={`${classes.image} w-100 container p-0 overflow-hidden`}>
+        <div className={`${classes.image} w-100 container p-0 overflow-hidden`}>
           <motion.img src={require(`../../../img/${props.image}`)} alt="error" className={`m-0 img-fluid ${classes.img}`} whileHover={{scale: 1.1, transition: {duration: 0.3}}}/>
-        </Link>
+        </div>
         <div className={`container ${classes.caption}`}>
           <h2 className="text-center mt-3">{formatCurrency(props.price)}</h2>
           <div className={`text-center mt-1 mb-3 ${classes.stars}`}>
@@ -46,7 +57,9 @@ const PopularCourse = (props) => {
           </div>
           <div className={`container-fluid px-0 mb-2 text-center fs-5 fw-semibold d-flex justify-content-center align-items-start ${classes.title}`}>{props.title}</div>
           {user && <div className={`d-flex justify-content-center align-items-center mb-3`} style={{width: '70%'}}>
-            <button className={`d-flex justify-content-center align-items-center text-white ${classes.button}`}>Add To Cart</button>
+            <Link to={user ? `/courses/details/${props.id}` : '/auth'} className={`d-flex justify-content-center align-items-center text-white text-decoration-none me-3 ${classes.button}`}>Earn Now</Link>
+            {!props.cart && <button onClick={addToCartHandler} className={`d-flex justify-content-center align-items-center text-white ${classes.button}`}>Add To Cart</button>}
+            {props.cart && <button onClick={deleteFromCartHandler} className={`d-flex justify-content-center align-items-center text-white ${classes.button}`}>Remove</button>}
           </div>
           }
           <div className={`container-fluid pt-2 ${classes.bordered}`}>

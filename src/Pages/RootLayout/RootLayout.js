@@ -15,31 +15,18 @@ const RootLayout = (props) => {
         setUser(null)
     }
     useEffect(() => {
-        const storedUser = JSON.parse(localStorage.getItem('profile'));
-        console.log('Stored User:', storedUser);
-    
+        const storedUser = JSON.parse(localStorage.getItem('profile')); 
         if (storedUser) {
-            const token = storedUser.token;
-            console.log('Token:', token);
-    
-            const decodeToken = jwtDecode(token);
-            console.log('Decoded Token:', decodeToken);
-    
-            const expirationTimeMs = decodeToken.exp * 1000;
-            console.log('Token expiration:', expirationTimeMs);
-            console.log('Current time:', new Date().getTime());
-    
+            const token = storedUser.token;   
+            const decodeToken = jwtDecode(token);   
+            const expirationTimeMs = decodeToken.exp * 1000;   
             if (expirationTimeMs > new Date().getTime()) {
-                console.log('Token not expired. Setting user.');
                 setUser(storedUser);
             } else {
-                console.log('Token expired. Logging out.');
                 logoutHandler();
             }
         }
     }, []);
-    
-    
     return (
         <Fragment>
             <Navbar user={user} logoutHandler={logoutHandler}/>
