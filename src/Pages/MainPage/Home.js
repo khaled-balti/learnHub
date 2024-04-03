@@ -24,7 +24,7 @@ const Home = () => {
       className="overflow-hidden d-flex flex-column"
     >
       <Carousel />
-      <ServiceBoad />
+      {/* <ServiceBoad /> */}
       <FirstSection />
       <SecondSection />
       <ThirdSection />

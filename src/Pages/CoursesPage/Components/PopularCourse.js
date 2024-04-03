@@ -4,11 +4,10 @@ import Clock from "../../../UI/Clock/Clock";
 import Student from "../../../UI/Student/Student";
 import classes from "./popularCourse.module.css";
 import { motion , useInView , useAnimation } from "framer-motion";
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import { getInstructors } from "../../../store/actions/instructorsActions";
 import { Link, useNavigate } from "react-router-dom";
-// import { addToCart } from "../../../api";
-import { deleteCourseFromCart, addCourseToCart } from "../../../store/actions/courseAction";
+import { deleteCourseFromCart, addCourseToCart, getClasses } from "../../../store/actions/courseAction";
 const PopularCourse = (props) => {
   const navigate = useNavigate()
   const user = props.user
@@ -25,6 +24,7 @@ const PopularCourse = (props) => {
   const controls = useAnimation()
   useEffect(() => {
     dispatch(getInstructors())
+    dispatch(getClasses())
   }, [dispatch])
   useEffect(() => {
     if (courseIsInView) {
@@ -39,12 +39,16 @@ const PopularCourse = (props) => {
     e.preventDefault()
     dispatch(deleteCourseFromCart(props.id, navigate))
   }
+  const myClasses = useSelector(state => state.courseReducer.classesCourses)
+  const exists = myClasses.find(course => course._id == props.id)
   return (
     <div className={`col-12 col-md-6 col-xl-4`}>
       <motion.div className={`container d-flex flex-column justify-content-between align-items-center px-3 py-3 mb-4 ${classes.card}`} variants={{hidden: {opacity: 0, y: 150} , visible: {opacity: 1, y: 0}}} initial="hidden" ref={courseRef} animate={controls} transition={{duration: 0.4, ease: 'easeInOut' , delay: props.delay}}>
-        <div className={`${classes.image} w-100 container p-0 overflow-hidden`}>
-          <motion.img src={require(`../../../img/${props.image}`)} alt="error" className={`m-0 img-fluid ${classes.img}`} whileHover={{scale: 1.1, transition: {duration: 0.3}}}/>
-        </div>
+        {props.image && <div className={`${classes.image} w-100 container p-0 overflow-hidden`}>
+          <Link to={user ? `/courses/${props.id}/infos` : '/auth'}>
+            <motion.img src={props.image} alt="error" className={`m-0 img-fluid ${classes.img}`} whileHover={{scale: 1.1, transition: {duration: 0.3}}}/>
+          </Link>
+        </div>}
         <div className={`container ${classes.caption}`}>
           <h2 className="text-center mt-3">{formatCurrency(props.price)}</h2>
           <div className={`text-center mt-1 mb-3 ${classes.stars}`}>
@@ -56,15 +60,16 @@ const PopularCourse = (props) => {
             ))}
           </div>
           <div className={`container-fluid px-0 mb-2 text-center fs-5 fw-semibold d-flex justify-content-center align-items-start ${classes.title}`}>{props.title}</div>
-          {user && <div className={`d-flex justify-content-center align-items-center mb-3`} style={{width: '70%'}}>
-            <Link to={user ? `/courses/details/${props.id}` : '/auth'} className={`d-flex justify-content-center align-items-center text-white text-decoration-none me-3 ${classes.button}`}>Earn Now</Link>
-            {!props.cart && <button onClick={addToCartHandler} className={`d-flex justify-content-center align-items-center text-white ${classes.button}`}>Add To Cart</button>}
-            {props.cart && <button onClick={deleteFromCartHandler} className={`d-flex justify-content-center align-items-center text-white ${classes.button}`}>Remove</button>}
-          </div>
-          }
+            {user && <div className={`d-flex justify-content-center align-items-center mb-3`} style={{width: '70%'}}>
+              {user?.result?._id != props.creator._id && !props.classes && !exists && <Link to={user ? `/courses/details/${props.id}` : '/auth'} className={`d-flex justify-content-center align-items-center text-white text-decoration-none me-3 ${classes.button}`}>Earn Now</Link>}
+              {user?.result?._id != props.creator._id && !props.cart && !props.classes && !exists && <button onClick={addToCartHandler} className={`d-flex justify-content-center align-items-center text-white ${classes.button}`}>Add To Cart</button>}
+              {user?.result?._id != props.creator._id && !props.classes && !props.cart && exists && <Link to={user ? `/courses/${props.id}/videos` : '/auth'} className={`d-flex justify-content-center align-items-center text-white text-decoration-none me-3 ${classes.button}`}>Consult Course</Link>}
+              {props.cart && <button onClick={deleteFromCartHandler} className={`d-flex justify-content-center align-items-center text-white ${classes.button}`}>Remove</button>}
+              {props.classes && <Link to={user ? `/courses/${props.id}/videos` : '/auth'} className={`d-flex justify-content-center align-items-center text-white text-decoration-none me-3 ${classes.button}`}>Consult Course</Link>}
+            </div>}
           <div className={`container-fluid pt-2 ${classes.bordered}`}>
             <div className="row">
-              <div className={`${classes.font} ${classes.footer} container col-3 m-0 mb-2 d-flex justify-content-center align-items-center`}><Professor/><span>{props.creator.firstName}</span></div>
+              <div className={`${classes.font} ${classes.footer} container col-3 m-0 mb-2 d-flex justify-content-center align-items-center`}><Professor/><span>{props.creator && props.creator.firstName}</span></div>
               <div className={`${classes.font} ${classes.footer} container col-5 mb-2 d-flex justify-content-center align-items-center`}><Student/><span>30 Students</span></div>
               <div className={`${classes.font} container col-4 d-flex justify-content-center align-items-center`}><Clock/><span>1.49 Hrs</span></div>
             </div>

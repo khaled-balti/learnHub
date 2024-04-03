@@ -4,7 +4,6 @@
     letter-spacing: 1px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #06bbcc;
-    /* margin-left: -60px; */
 }
 .active {
     color: #06bbcc;
@@ -14,7 +13,7 @@
     background-color: #06bbcc;
     width: 200px;
     color: white;
-    margin-right: -115px;
+    margin-right: -10px;
     border-color: #06bbcc;
     font-size: 20px;
     text-decoration: none;
@@ -45,7 +44,6 @@
     align-items: center;
 }
 .dropcustom {
-    /* position: absolute; */
     margin: 50%;
     transform: translateX(-50%);
 }
@@ -58,4 +56,13 @@
     justify-content: center;
     align-items: center;
     margin-right: 20px;
+}
+.logout {
+    font-size: 16px;
+    margin-right: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #333;
+    border: none;
 }

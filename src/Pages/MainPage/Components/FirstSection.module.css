@@ -2,7 +2,10 @@
     margin-bottom: 100px;
 }
 .part {
-    width: 630px;
+    height: auto;
+    overflow: hidden;
+}
+.part1 {
     height: 500px;
     overflow: hidden;
 }
@@ -29,11 +32,20 @@
 }
 .stars {
     height: auto;
-    min-height: 600px;
 }
 @media (max-width: 1200px) {
     .wrap {
         flex-wrap: wrap-reverse;
+    }
+}
+@media (max-width: 1280px) {
+    .part1 {
+        height: 600px;
+    }
+}
+@media (max-width: 540px) {
+    .part1 {
+        height: 250px;
     }
 }
 

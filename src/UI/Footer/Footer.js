@@ -5,6 +5,8 @@ import FooterPicTwo from "../../img/course-2.jpg"
 import FooterPicThree from "../../img/course-3.jpg"
 import classes from "./Footer.module.css"
 import { motion } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebookF, faTwitter, faLinkedinIn, faInstagram } from "@fortawesome/free-brands-svg-icons";
 const Footer = () => {
     return (
         <Fragment>
@@ -27,10 +29,10 @@ const Footer = () => {
                             <li><i className="fa fa-phone mb-3 me-3"></i> +012 345 67890</li>
                             <li><i className="fa fa-envelope mb-3 me-3" ></i> info@exemple.com</li>
                             <li className="d-flex">
-                                <motion.a className={classes.social} whileHover={{backgroundColor: 'white',color: '#06bbcc', rotate: '1turn'}} transition={{duration: 0.5}} href="#"><i className="fa fa-twitter fs-5"></i></motion.a>
-                                <motion.a className={classes.social} whileHover={{backgroundColor: 'white',color: '#06bbcc', rotate: '1turn'}} transition={{duration: 0.5}} href="#"><i className="fa fa-facebook fs-5"></i></motion.a>
-                                <motion.a className={classes.social} whileHover={{backgroundColor: 'white',color: '#06bbcc', rotate: '1turn'}} transition={{duration: 0.5}} href="#"><i className="fa fa-instagram fs-5"></i></motion.a>
-                                <motion.a className={classes.social} whileHover={{backgroundColor: 'white',color: '#06bbcc', rotate: '1turn'}} transition={{duration: 0.5}} href="#"><i className="fa fa-linkedin fs-5"></i></motion.a>
+                                <motion.a className={classes.social} whileHover={{backgroundColor: 'white',color: '#06bbcc', rotate: '1turn'}} transition={{duration: 0.5}} href="#"><FontAwesomeIcon icon={faTwitter} /></motion.a>
+                                <motion.a className={classes.social} whileHover={{backgroundColor: 'white',color: '#06bbcc', rotate: '1turn'}} transition={{duration: 0.5}} href="#"><FontAwesomeIcon icon={faFacebookF} /></motion.a>
+                                <motion.a className={classes.social} whileHover={{backgroundColor: 'white',color: '#06bbcc', rotate: '1turn'}} transition={{duration: 0.5}} href="#"><FontAwesomeIcon icon={faInstagram} /></motion.a>
+                                <motion.a className={classes.social} whileHover={{backgroundColor: 'white',color: '#06bbcc', rotate: '1turn'}} transition={{duration: 0.5}} href="#"><FontAwesomeIcon icon={faLinkedinIn} /></motion.a>
                             </li>
                         </ul>
                     </div>

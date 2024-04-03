@@ -2,43 +2,34 @@ import React, { forwardRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import classes from "./ServiceItem.module.css";
 
-const ServiceItem = forwardRef((props, ref) => {
+const ServiceItem = forwardRef(({ type, title, description, serviceIsInView, animate, visibleService, variants, initial, transition }, ref) => {
   const [isHovered, setIsHovered] = useState(false);
-  const serviceIsInView = props.serviceIsInView;
-  const controls = props.animate;
-  const visibleService = props.visibleService;
 
   useEffect(() => {
     if (serviceIsInView) {
-      controls.start(visibleService);
+      animate.start(visibleService);
     }
-  }, [serviceIsInView]);
+  }, [serviceIsInView, animate, visibleService]);
 
   return (
     <motion.div
       ref={ref}
-      onHoverStart={() => {
-        setIsHovered(true);
-      }}
-      onHoverEnd={() => {
-        setIsHovered(false);
-      }}
-      whileHover={{ backgroundColor: "#06bbcc", color: "white" }}
-      className={`${classes.item} col-lg-3 col-sm-6 col-md-6 col-12 text-center`}
-      variants={props.variants}
-      initial={props.initial}
-      animate={props.animate}
-      transition={props.transition}
+      className={`col-lg-3 col-sm-6 col-12 text-center`}
+      style={{backgroundColor: 'white', height: '100%'}}
+      variants={variants}
+      initial={initial}
+      animate={animate}
+      transition={transition}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
     >
-      <div className="p-4">
+      <motion.div className="p-3 d-flex flex-column justify-content-center align-items-center" style={{backgroundColor: '#F0FBFC'}} whileHover={{ backgroundColor: "#06bbcc", color: "white" }}>
         <motion.i
-          className={`fa fa-3x ${props.type} mb-4 ${
-            !isHovered ? classes.blue : "text-white"
-          }`}
-        ></motion.i>
-        <h5 className="mb-3">{props.title}</h5>
-        <p>{props.description}</p>
-      </div>
+          className={`fa fa-3x ${type} mb-4 ${!isHovered ? classes.blue : "text-white"}`}
+        />
+        <h5 className="mb-3">{title}</h5>
+        <p className="w-75">{description}</p>
+      </motion.div>
     </motion.div>
   );
 });

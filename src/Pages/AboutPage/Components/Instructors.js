@@ -31,7 +31,7 @@ const Instructors = (props) => {
         }
     } , [slogonIsInView])
     return (
-        <div className="container">
+        <div className="container-fluid px-1 px-sm-5">
             <Title h5="Insructors" h1="Expert Instructors" delay5={0.4} delay1={0.8} />
             <div className="row">
                 {content}

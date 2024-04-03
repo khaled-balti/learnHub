@@ -2,12 +2,14 @@ import React, { useEffect, useState, useRef, Fragment } from 'react';
 import classes from './Details.module.css';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCourse } from '../../store/actions/courseAction';
+import { getCourse, addCourseToClasses } from '../../store/actions/courseAction';
 import Card from './Components/Card';
 import PayCard from './Components/PayCard';
-import Navbar from '../../UI/Navbar/Navbar'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLock } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 const Details = () => {
-  // const componentRef = useRef();
+  const navigate = useNavigate()
   const [method, setMethod] = useState(1)
   const [clicked, setClicked] = useState(null)
   function formatDate(date) {
@@ -29,21 +31,13 @@ const Details = () => {
   
   useEffect(() => {
     dispatch(getCourse(id));
-    // if (componentRef.ref) {
-    //   const componentWidth = componentRef.current.offsetWidth;
-    //   const characterWidth = 5; // Width of the character in pixels
-    //   const repetitions = Math.ceil(componentWidth / characterWidth);
-    //   const backgroundString = Array(repetitions).fill('-').join('');
-    //   componentRef.current.style.background = `repeating-linear-gradient(to right, #000000 0, #000000 ${characterWidth}px, transparent 0, transparent ${characterWidth * 2}px)`;
-    // }
   }, [dispatch, id]);
   const course = useSelector((state) => state.courseReducer.course);
   const [totalPrice, setTotalPrice] = useState(0)
-  // Check if course is null or undefined
   if (!course) {
     return <div>Loading...</div>;
   }
-  const createdDate = new Date(course.createdAt); // assuming course.createdAt is a valid Date object
+  const createdDate = new Date(course.createdAt);
   const formattedDate = formatDate(createdDate);
   const formattedPrice = formatCurrency(course.price);
   const plusPrice = totalPrice - course.price
@@ -51,10 +45,15 @@ const Details = () => {
     setClicked(null)
     setTotalPrice(0)
   }
+  const addToClassesHandler = async(e) => {
+    e.preventDefault()
+    dispatch(addCourseToClasses(id))
+    navigate('/classes')
+  }
   
   return (
     <Fragment>
-      {/* <Navbar /> */}
+      {/* <Navbar/> */}
       <div className={`container-fluid ${classes.body} min-vh-100 d-flex justify-content-center align-items-center px-1 px-md-5 py-2`}>
         <div className={`container ${classes.cont} d-flex flex-column justify-content-between align-items-center`}>
           <div className={`container ${classes.menu}`}>
@@ -67,7 +66,7 @@ const Details = () => {
                   <div className={`${classes.cont4} col-12 col-lg-8 me-5 d-flex flex-wrap flex-column justify-content-between align-items-center`}>
                     <div style={{height: '30%'}} className='w-100 d-flex flex-column flex-lg-row justify-content-between align-items-center mb-3'>
                       <div className='d-flex justify-content-between align-items-center p-3 me-2' style={{height: '100%'}}>
-                        {course.image && <img src={require(`../../img/${course.image}`)} style={{width: '200px', height: '100%'}} alt={course.title} />}
+                        {course.image && <img src={course.image} style={{width: '200px', height: '100%'}} alt={course.title} />}
                       </div>
                       <div className='d-flex flex-column justify-content-between align-items-start' style={{width: '100%'}} >
                         <p className={`${classes.title}`}>{course.title}</p>
@@ -137,7 +136,7 @@ const Details = () => {
                       </div>
                     </div>
                     <div style={{height: '40px'}} className='w-100 d-flex justfy-content-center align-items-center mb-3'>
-                      <p className={`${classes.note} mx-auto text-center mb-0`}>{clicked && <i className='fa fa-info-circle'></i>} {clicked && `You agree to pay ${formatCurrency(plusPrice)} more than the actual price.`}</p>
+                      {clicked && <p className={`${classes.note} mx-auto text-center my-0`}><i className='fa fa-info-circle'></i> {`You agree to pay ${formatCurrency(plusPrice)} more than the actual price.`}</p>}
                     </div>
                   </div>
                   <div className={`${classes.cont4} col-12 col-lg-3`}>
@@ -170,9 +169,9 @@ const Details = () => {
                         <PayCard id={4} method={method} setMethod={setMethod} >Wallet</PayCard>
                         <PayCard id={5} method={method} setMethod={setMethod} >Master Card</PayCard>
                       </div>
-                      {clicked && <button className={`${classes.paybutton} mb-4 w-100 d-flex justify-content-center align-items-center`} type='button'>Pay {formatCurrency(totalPrice/clicked)}</button>}
-                      {!clicked && <button className={`${classes.paybutton} mb-4 w-100 d-flex justify-content-center align-items-center`} type='button'>Pay {formatCurrency(course.price)}</button>}
-                      <p className='text-center text-black-50'><i className='fa fa-lock'></i>&nbsp;&nbsp;&nbsp;Secure Checkout</p>
+                      {clicked && <button className={`${classes.paybutton} mb-4 w-100 d-flex justify-content-center align-items-center`} type='button' onClick={addToClassesHandler}>Pay {formatCurrency(totalPrice/clicked)}</button>}
+                      {!clicked && <button className={`${classes.paybutton} mb-4 w-100 d-flex justify-content-center align-items-center`} type='button' onClick={addToClassesHandler}>Pay {formatCurrency(course.price)}</button>}
+                      <p className='text-center text-black-50'><FontAwesomeIcon icon={faLock} />&nbsp;&nbsp;&nbsp;Secure Checkout</p>
                     </div>
                   </div>
                 </div>

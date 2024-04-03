@@ -2,69 +2,49 @@ import React from 'react'
 import classes from './Filter.module.css'
 const Filter = () => {
   return (
-    <div className="accordion mb-5 w-25" id="accordionPanelsStayOpenExample">
-        <div className="accordion-item">
-            <h2 className="accordion-header">
-            <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                Price
-            </button>
-            </h2>
-            <div id="panelsStayOpen-collapseOne" className="accordion-collapse collapse">
-                <div className="accordion-body d-flex justify-content-around align-items-center">
-                    <div>  
-                        <label for="lowerprice" className='me-3'>from</label>
-                        <input type='number' min={0} style={{width: '50px'}} step={0.01} defaultValue={0} id="lowerprice" />
+    <div className="container-fluid">
+        <div className='row gx-5 gy-2'>
+            <div className='col-12 col-md-6 col-lg-4 d-flex justify-content-between align-items-center px-lg-5' style={{height: '70px', border: '1px solid #06bbcc'}}>
+                <div>Price</div>
+                <div className='d-flex justify-content-between align-items-center w-75'>
+                    <div className='d-flex me-3'>
+                        <label htmlFor='lowprice'>from</label>&nbsp;&nbsp;&nbsp;
+                        <input className={classes.input} type='number' id='lowprice'/>
                     </div>
-                    <div>
-                        <label for="heighprice" className='me-3'>to</label>
-                        <input type='number' min={0} style={{width: '50px'}} step={0.01} defaultValue={0} id="heighprice" />
+                    <div className='d-flex'>
+                        <label htmlFor='heighprice'>to</label>&nbsp;&nbsp;&nbsp;
+                        <input className={classes.input} type='number' id='heightprice' />
+                    </div>
+                </div>
+            </div>
+            <div className='col-12 col-md-6 col-lg-4 d-flex justify-content-between align-items-center px-lg-5' style={{height: '70px', border: '1px solid #06bbcc'}}>
+                <div>Rate</div>
+                <div className='d-flex justify-content-between align-items-center w-75'>
+                    <div className='d-flex me-3'>
+                        <label htmlFor='lowprice'>from</label>&nbsp;&nbsp;&nbsp;
+                        <input className={classes.input} type='number' id='lowprice' defaultValue={0} min={0} max={5} step={0.1} />
+                    </div>
+                    <div className='d-flex'>
+                        <label htmlFor='heighprice'>to</label>&nbsp;&nbsp;&nbsp;
+                        <input className={classes.input} type='number' id='heightprice' defaultValue={0} min={0} max={5} step={0.1} />
+                    </div>
+                </div>
+            </div>
+            <div className='col-12 col-md-6 col-lg-4 d-flex justify-content-between align-items-center px-lg-5' style={{height: '70px', border: '1px solid #06bbcc'}}>
+                <div>Duration</div>
+                <div className='d-flex justify-content-between align-items-center w-75'>
+                    <div className='d-flex me-3'>
+                        <label htmlFor='lowprice'>from</label>&nbsp;&nbsp;&nbsp;
+                        <input className={classes.input} type='number' id='lowprice' />
+                    </div>
+                    <div className='d-flex'>
+                        <label htmlFor='heighprice'>to</label>&nbsp;&nbsp;&nbsp;
+                        <input className={classes.input} type='number' id='heightprice' />
                     </div>
                 </div>
             </div>
         </div>
-        <div className="accordion-item">
-            <h2 className="accordion-header">
-            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                Rate
-            </button>
-            </h2>
-            <div id="panelsStayOpen-collapseTwo" className="accordion-collapse collapse">
-                <div className="accordion-body d-flex justify-content-around align-items-center">
-                    <div>  
-                        <label for="lowerrate" className='me-3'>from</label>
-                        <input type='number' style={{width: '50px'}} min={0} max={5} step={0.5} defaultValue={0} id="lowerrate" />
-                    </div>
-                    <div>
-                        <label for="heighrate" className='me-3'>to</label>
-                        <input type='number' style={{width: '50px'}} min={0} max={5} step={0.5} defaultValue={0} id="heighrate" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div className="accordion-item">
-            <h2 className="accordion-header">
-            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                Hours number
-            </button>
-            </h2>
-            <div id="panelsStayOpen-collapseThree" className="accordion-collapse collapse">
-                <div className="accordion-body d-flex justify-content-around align-items-center">
-                    <div>  
-                        <label for="lowerhour" className='me-3'>from</label>
-                        <input type='number' style={{width: '50px'}} min={0} step={0.01} defaultValue={0} id="lowerhour" />
-                    </div>
-                    <div>
-                        <label for="heighhour" className='me-3'>to</label>
-                        <input type='number' style={{width: '50px'}} min={0} step={0.01} defaultValue={0} id="heighhour" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div className="accordion-item">
-            <button className={`${classes.button} w-100 fs-5 btn`} type="button">
-                Filter
-            </button>
-        </div>
+        
     </div>
   )
 }

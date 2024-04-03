@@ -22,6 +22,7 @@ const CarouselAnimatedItem = (props) => {
   const blueBtnIsInView = useInView(refBlueBtn, { once: true });
   const refWhiteBtn = useRef();
   const whiteBtnIsInView = useInView(refWhiteBtn, { once: true });
+  const user = JSON.parse(localStorage.getItem('profile'))
   return (
     <div className={`carousel-caption ${classes.cont}`}>
       <motion.h4
@@ -68,7 +69,7 @@ const CarouselAnimatedItem = (props) => {
         >
           Read More
         </Button>
-        <Button
+        {!user && <Button
           type="button"
           func="white"
           link="/auth"
@@ -82,7 +83,7 @@ const CarouselAnimatedItem = (props) => {
           controls={controls}
         >
           Join Now
-        </Button>
+        </Button>}
       </div>
     </div>
   );

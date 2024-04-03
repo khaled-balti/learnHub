@@ -2,7 +2,8 @@ import React, { useRef, useEffect } from "react";
 import HomePicOne from "../../../img/home1.jpg";
 import classes from "./FirstSection.module.css";
 import { motion, useAnimation, useInView } from "framer-motion";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-regular-svg-icons";
 const FirstSection = (props) => {
   const imageRef = useRef();
   const imageIsInView = useInView(imageRef, { once: true });
@@ -59,13 +60,13 @@ const FirstSection = (props) => {
   }, [starsIsInView]);
 
   return (
-    <div className={`container-md ${classes.cont} w-100`}>
+    <div className={`container-fluid ${classes.cont} w-100 mt-5 px-5`}>
       <div className={`row`}>
-        <div className={`col-lg-6 col-12 ${classes.part} me-lg-5`}>
+        <div className={`col-lg-6 col-12 ${classes.part1} p-0`}>
           <motion.img
             src={HomePicOne}
             alt="error"
-            className={`${classes.part} img-fluid`}
+            className={`${classes.part1} img-fluid w-100`}
             ref={imageRef}
             variants={{
               hiddenImg: { opacity: 0, y: 150 },
@@ -80,7 +81,9 @@ const FirstSection = (props) => {
             }}
           />
         </div>
-        <div className={`col-lg-6 col-md-12 ${classes.part} d-flex flex-column pt-2`}>
+        <div
+          className={`col-lg-6 col-12 ${classes.part} d-flex flex-column pt-2 ps-5`}
+        >
           <motion.h5
             className={`${classes.title} text-center text-lg-start`}
             ref={slogonRef}
@@ -148,206 +151,59 @@ const FirstSection = (props) => {
             diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet
             lorem sit clita duo justo magna dolore erat amet
           </motion.p>
-          <div className="container ">
+          <motion.div
+            className="container"
+            ref={starsRef}
+            variants={{
+              hiddenStars: { opacity: 0, y: 150 },
+              visibleStars: { opacity: 1, y: 0 },
+            }}
+            initial="hiddenStars"
+            animate={starscontrols}
+            transition={{
+              y: { duration: 0.4, ease: "easeInOut", delay: 2 },
+              opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
+            }}
+          >
             <div className="row">
               <div className="col-sm-6">
                 <p>
-                  <motion.i
-                    className={`fa fa-star ${classes.icons} me-1`}
-                    ref={starsRef}
-                    variants={{
-                      hiddenStars: { opacity: 0, y: 150 },
-                      visibleStars: { opacity: 1, y: 0 },
-                    }}
-                    initial="hiddenStars"
-                    animate={starscontrols}
-                    transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
-                    }}
-                  ></motion.i>
-                  <motion.span
-                    className="text-black-50 fs-5"
-                    ref={starsRef}
-                    variants={{
-                      hiddenStars: { opacity: 0, y: 150 },
-                      visibleStars: { opacity: 1, y: 0 },
-                    }}
-                    initial="hiddenStars"
-                    animate={starscontrols}
-                    transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
-                    }}
-                  >
+                  <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
+                  <span className="text-black-50 fs-5">
                     Skilled Instructors
-                  </motion.span>
+                  </span>
                 </p>
                 <p>
-                  <motion.i
-                    className={`fa fa-star ${classes.icons} me-1`}
-                    ref={starsRef}
-                    variants={{
-                      hiddenStars: { opacity: 0, y: 150 },
-                      visibleStars: { opacity: 1, y: 0 },
-                    }}
-                    initial="hiddenStars"
-                    animate={starscontrols}
-                    transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
-                    }}
-                  ></motion.i>
-                  <motion.span
-                    className="text-black-50 fs-5"
-                    ref={starsRef}
-                    variants={{
-                      hiddenStars: { opacity: 0, y: 150 },
-                      visibleStars: { opacity: 1, y: 0 },
-                    }}
-                    initial="hiddenStars"
-                    animate={starscontrols}
-                    transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
-                    }}
-                  >
+                  <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
+                  <span className="text-black-50 fs-5">
                     International Certificates
-                  </motion.span>
+                  </span>
                 </p>
                 <p>
-                  <motion.i
-                    className={`fa fa-star ${classes.icons} me-1`}
-                    ref={starsRef}
-                    variants={{
-                      hiddenStars: { opacity: 0, y: 150 },
-                      visibleStars: { opacity: 1, y: 0 },
-                    }}
-                    initial="hiddenStars"
-                    animate={starscontrols}
-                    transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
-                    }}
-                  ></motion.i>
-                  <motion.span
-                    className="text-black-50 fs-5"
-                    ref={starsRef}
-                    variants={{
-                      hiddenStars: { opacity: 0, y: 150 },
-                      visibleStars: { opacity: 1, y: 0 },
-                    }}
-                    initial="hiddenStars"
-                    animate={starscontrols}
-                    transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
-                    }}
-                  >
-                    Online Classes
-                  </motion.span>
+                  <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
+                  <span className="text-black-50 fs-5">Online Classes</span>
                 </p>
               </div>
-              <div className={`col-sm-6 ${classes.stars}`}>
-              <p>
-                  <motion.i
-                    className={`fa fa-star ${classes.icons} me-1`}
-                    ref={starsRef}
-                    variants={{
-                      hiddenStars: { opacity: 0, y: 150 },
-                      visibleStars: { opacity: 1, y: 0 },
-                    }}
-                    initial="hiddenStars"
-                    animate={starscontrols}
-                    transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
-                    }}
-                  ></motion.i>
-                  <motion.span
-                    className="text-black-50 fs-5"
-                    ref={starsRef}
-                    variants={{
-                      hiddenStars: { opacity: 0, y: 150 },
-                      visibleStars: { opacity: 1, y: 0 },
-                    }}
-                    initial="hiddenStars"
-                    animate={starscontrols}
-                    transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
-                    }}
-                  >
-                    Online Classes
-                  </motion.span>
-                </p>
+              <div className="col-sm-6">
                 <p>
-                  <motion.i
-                    className={`fa fa-star ${classes.icons} me-1`}
-                    ref={starsRef}
-                    variants={{
-                      hiddenStars: { opacity: 0, y: 150 },
-                      visibleStars: { opacity: 1, y: 0 },
-                    }}
-                    initial="hiddenStars"
-                    animate={starscontrols}
-                    transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
-                    }}
-                  ></motion.i>
-                  <motion.span
-                    className="text-black-50 fs-5"
-                    ref={starsRef}
-                    variants={{
-                      hiddenStars: { opacity: 0, y: 150 },
-                      visibleStars: { opacity: 1, y: 0 },
-                    }}
-                    initial="hiddenStars"
-                    animate={starscontrols}
-                    transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
-                    }}
-                  >
-                    International Certificates
-                  </motion.span>
-                </p>
-                <p>
-                  <motion.i
-                    className={`fa fa-star ${classes.icons} me-1`}
-                    ref={starsRef}
-                    variants={{
-                      hiddenStars: { opacity: 0, y: 150 },
-                      visibleStars: { opacity: 1, y: 0 },
-                    }}
-                    initial="hiddenStars"
-                    animate={starscontrols}
-                    transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
-                    }}
-                  ></motion.i>
-                  <motion.span
-                    className="text-black-50 fs-5"
-                    ref={starsRef}
-                    variants={{
-                      hiddenStars: { opacity: 0, y: 150 },
-                      visibleStars: { opacity: 1, y: 0 },
-                    }}
-                    initial="hiddenStars"
-                    animate={starscontrols}
-                    transition={{
-                      y: { duration: 0.4, ease: "easeInOut", delay: 2 },
-                      opacity: { duration: 0.4, ease: "easeInOut", delay: 2 },
-                    }}
-                  >
+                  <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
+                  <span className="text-black-50 fs-5">
                     Skilled Instructors
-                  </motion.span>
+                  </span>
+                </p>
+                <p>
+                  <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
+                  <span className="text-black-50 fs-5">
+                    International Certificates
+                  </span>
+                </p>
+                <p>
+                  <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
+                  <span className="text-black-50 fs-5">Online Classes</span>
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

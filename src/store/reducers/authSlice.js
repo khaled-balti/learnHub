@@ -5,7 +5,6 @@ const AuthSlice = createSlice({
     reducers: {
         addUser (state, action) {
             localStorage.setItem('profile', JSON.stringify({ ...action.payload?.data }))
-            console.log({...state, authData: action.payload?.data})
             return {...state, authData: action.payload?.data}
         },
         logout (state) {

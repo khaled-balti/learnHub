@@ -3,6 +3,7 @@ import classes from "./CarouselItem.module.css";
 import Button from "../../../../UI/Button/Button";
 import { Link } from "react-router-dom";
 const CarouselItem = (props) => {
+  const user = JSON.parse(localStorage.getItem('profile'));
   return (
     <div className={`carousel-caption ${classes.cont}`}>
       <h4 className={classes.title}>best online courses</h4>
@@ -12,9 +13,9 @@ const CarouselItem = (props) => {
         <Button type="button" func="blue" link="/readmore">
           Read More
         </Button>
-        <Button type="button" func="white" link="/auth">
+        {!user && <Button type="button" func="white" link="/auth">
           Join Now
-        </Button>
+        </Button>}
       </div>
     </div>
   );

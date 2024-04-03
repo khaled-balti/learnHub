@@ -1,5 +1,4 @@
 .cont {
-    /* width: 100vw; */
     height: 500px;
     overflow: hidden;
     display: flex;
@@ -30,7 +29,13 @@
     word-spacing: 1.5px;
     letter-spacing: 10px;
     margin-bottom: 25px;
+    text-align: center;
 }
 .backim {
     background-color: black;
+}
+@media (max-width: 768px) {
+    .title {
+        font-size: 50px;
+    }
 }

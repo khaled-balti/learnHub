@@ -17,7 +17,7 @@ const Header = (props) => {
       <div className={classes.caption}>
         <motion.h1
           ref={titleRef}
-          className={classes.title}
+          className={`${classes.title}`}
           variants={{
             hidden: { y: -100, opacity: 0 },
             visible: { y: 0, opacity: 1 }

@@ -4,17 +4,16 @@
     height: 50px;
 }
 .cont {
-    min-height: 100vh;
+    margin-top: 70px;
 }
 .item {
     height: 100vh;
 }
 @media (max-width: 768px) {
     .cont {
-        min-height: 70vh;
         margin-bottom: 20px;
     }
     .item {
-        height: 70vh;
+        height: 40vh;
     }
 }

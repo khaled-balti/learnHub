@@ -8,7 +8,7 @@ const Carousel = () => {
   return (
     <div
       id="carouselExampleCaptions"
-      className={`carousel slide ${classes.cont} w-100 p-0`}
+      className={`carousel slide w-100 p-0 ${classes.cont}`}
       data-bs-ride="carousel"
     >
       <div className="carousel-indicators">
@@ -28,7 +28,7 @@ const Carousel = () => {
         ></button>
       </div>
       <div className="carousel-inner">
-        <div className="carousel-item active bg-dark" data-bs-interval="5000">
+        <div className="carousel-item active bg-dark" data-bs-interval="5000" style={{height: '50%'}}>
           <img src={Carousel1} style={{opacity: 0.2 , width: '100%'}} className={`d-md-flex justify-content-md-between align-items-md-center image-fluid ${classes.item}`} alt="..." />
           <CarouselAnimatedItem
             title="The Best Online Learning Platform"

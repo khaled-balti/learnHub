@@ -6,7 +6,6 @@ import { getInstructors} from '../../store/actions/instructorsActions';
 import { useDispatch, useSelector } from "react-redux";
 import HomePic1 from "../../img/carousel-1.jpg"
 const Team = (props) => {
-    const data = useLoaderData()
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getInstructors());

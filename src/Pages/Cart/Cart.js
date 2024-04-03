@@ -14,8 +14,8 @@ const Cart = () => {
   } , [dispatch])
   const courses = useSelector((state) => state.courseReducer.cartCourses)
   const coursesNumber = useSelector((state) => state.courseReducer.cartCoursesNumber)
-  const content = courses.map((course, index) => (
-    <PopularCourse 
+  const content = courses.map((course, index) => {
+    return <PopularCourse 
     image={course.image}
     price={course.price}
     creator={course.creator}
@@ -28,7 +28,7 @@ const Cart = () => {
     key={index}
     cart={true}
     />
-  ))
+  })
   return (
     <Fragment>
       <Header text="cart" pic={HomePic2} />

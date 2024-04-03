@@ -7,6 +7,10 @@ import { addUserAction, fetchUserAction, authenticate } from '../../../store/act
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router'
 import {gapi} from 'gapi-script'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons';
+import FileBase from 'react-file-base64'
 const Form = () => {
   useEffect(() => {
     function start() {
@@ -43,7 +47,8 @@ const Form = () => {
     study: '',
     university: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    image: '',
   }
   const [formData , setFormData] = useState(initialValues)
   const changeValuesHandler = (e) => {
@@ -63,10 +68,7 @@ const Form = () => {
     setFormData(initialValues)
   }
   const googleSuccessHandler = (res) => {
-    console.log(res)
-    const result = res?.profileObj       //don't throw error if the object doesn't exist
-    const token = res?.tokenId
-    dispatch(authenticate(result, token))
+    dispatch(authenticate(res))
     navigate('/')
   }
   const googleFailureHandler = (err) => {
@@ -92,16 +94,19 @@ const Form = () => {
             <TextInput placeholder="University" type="text" name="university" onChange={changeValuesHandler}/>
           </div>
         </div>}
+        {!isLoggedIn && <div className='col-12'>
+          <FileBase type="file" style={{width: '100% !important'}} multiple={false} onDone={({ base64 }) => setFormData({...formData,image: base64})} />  
+        </div>}
         <div className='d-flex justify-content-between align-items-center w-100 pe-2'>
           <PasswordInput placeholder={isLoggedIn ? "Password" : "Create Password"} name="password" isVisible={isVisible} onChange={changeValuesHandler} />
-          {isVisible && <i className='fa fa-eye' onClick={changeVisibleHandler}></i>}
-          {!isVisible && <i className='fa fa-eye-slash' onClick={changeVisibleHandler}></i>}
+          {isVisible && <FontAwesomeIcon icon={faEye} onClick={changeVisibleHandler} />}
+          {!isVisible && <FontAwesomeIcon icon={faEyeSlash} onClick={changeVisibleHandler} />}
         </div>
         {!isLoggedIn && 
         <div className='d-flex justify-content-between align-items-center w-100 pe-2'>
           <PasswordInput placeholder="Confirm Password" name="confirmPassword" isVisible={isVisible2} onChange={changeValuesHandler} />
-          {isVisible2 && <i className='fa fa-eye' onClick={changeVisibleHandler2}></i>}
-          {!isVisible2 && <i className='fa fa-eye-slash' onClick={changeVisibleHandler2}></i>}
+          {isVisible2 && <FontAwesomeIcon icon={faEye} onClick={changeVisibleHandler2} />}
+          {!isVisible2 && <FontAwesomeIcon icon={faEyeSlash} onClick={changeVisibleHandler2} />}
         </div>}
         {isLoggedIn && <p style={{color: 'rgb(42, 142, 249)', cursor: 'pointer'}}>Forgot Password?</p>}
         <button type='submit' className={`btn ${classes.button}`}>{isLoggedIn ? 'Login' : 'SignUp'}</button>
@@ -114,7 +119,7 @@ const Form = () => {
                 onClick={renderProps.onClick}
                 disabled={renderProps.disabled}
               >
-                <i className={`fa fa-google ${classes.colored}`}></i>
+                <FontAwesomeIcon icon={faGoogle} />
                 &nbsp;&nbsp;&nbsp;&nbsp; <span className={classes.paragraph}>Login with Google</span>
               </div>
             )}
