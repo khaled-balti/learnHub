@@ -7,8 +7,8 @@ import AnonymeInst from '../../img/instructor prof.jpeg'
 import { Avatar, AvatarFallback, AvatarImage } from "../../shadcnComponents/ui/avatar"
 const Navbar = ({user, logoutHandler}) => {
     return (
-        <nav className="navbar navbar-expand-lg bg-white fixed-top shadow-0 border-bottom border-white py-0" style={{minHeight: '60px'}} >
-            <div className="container-fluid d-flex justify-content-center justify-content-md-between align-items-center">
+        <nav className="navbar navbar-expand-lg fixed-top shadow-0 border-bottom border-white py-0" style={{minHeight: '60px', backgroundColor: '#eee'}} >
+            <div className="container-fluid d-flex justify-content-between align-items-center">
                 <div className="d-flex justify-content-between align-items-center">
                     {!user && <div className={`d-none d-lg-inline ${classes['left-part']}`}><i className="fa fa-book"></i>  <span>E-Learning</span></div>}
                     {user && user?.result?.googleId && <Avatar>
@@ -16,12 +16,8 @@ const Navbar = ({user, logoutHandler}) => {
                             <AvatarFallback>CN</AvatarFallback>
                         </Avatar>
                     }
-                    {user && user?.result?._id && user?.result?.role === 'student' && <Avatar>
+                    {user && user?.result?._id && <Avatar>
                         <AvatarImage src={user?.result?.image !== '' ? user?.result?.image : Anonyme } />
-                            <AvatarFallback>CN</AvatarFallback>
-                        </Avatar>}
-                    {user && user?.result?._id && user?.result?.role === 'instructor' && <Avatar>
-                        <AvatarImage src={AnonymeInst} />
                             <AvatarFallback>CN</AvatarFallback>
                         </Avatar>}
                     {user && user?.result?.name && <h3 className="ms-3">{user?.result?.name}</h3>}
@@ -43,7 +39,7 @@ const Navbar = ({user, logoutHandler}) => {
                         {user && <button className={classes.logout} to="/logout" onClick={logoutHandler}>Logout</button>}                   
                     </ul>
                 </div>
-                <div className="navbar-collapse d-none d-lg-inline" id="navbarSupportedContent">
+                <div className="navbar-collapse d-none d-lg-inline" id="navbarSupportedContent" >
                     <ul className="navbar-nav ms-auto">
                         <NavBarLink link="/">Home</NavBarLink>
                         <NavBarLink link="/about">About</NavBarLink>

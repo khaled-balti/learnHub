@@ -27,7 +27,7 @@ const Courses = ({user}) => {
   ));
   return (
     <div className="container-fluid px-5">
-      <TopBar/>
+      {/* <TopBar/> */}
       <div className="row">{content}</div>
     </div>
   );

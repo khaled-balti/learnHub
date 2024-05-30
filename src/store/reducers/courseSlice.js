@@ -10,7 +10,8 @@ const CourseSlice = createSlice({
         classesCourses: [],
         classesCoursesNumber: 0,
         course: null,
-        students: []
+        students: [],
+        courseVideos: null
     },
     reducers: {
         fetchCourses (state, action) {
@@ -50,7 +51,22 @@ const CourseSlice = createSlice({
         },
         getCourseStudents(state, action) {
             state.students = action.payload
-        }
+        },
+        updateCourse(state, action) {
+            const updatedCourse = action.payload;
+            state.relatedCourses = state.relatedCourses.map(course => {
+                if (course._id === updatedCourse._id) {
+                    return updatedCourse;
+                }
+                return course;
+            });
+        },
+        addVideo(state, action) {
+            state.courseVideos.push(action.payload)
+        },
+        fetchVideos(state, action) {
+            state.courseVideos = action.payload
+        },
     }
 })
 export const CoursesActions = CourseSlice.actions

@@ -154,14 +154,14 @@ const FirstSection = (props) => {
             className="container"
             ref={starsRef}
             variants={{
-              hiddenStars: { opacity: 0, y: 150 },
+              hiddenStars: { opacity: 0, y: 140 },
               visibleStars: { opacity: 1, y: 0 },
             }}
             initial="hiddenStars"
             animate={starscontrols}
             transition={{
-              y: { duration: 0.2, ease: "easeInOut" },
-              opacity: { duration: 0.2, ease: "easeInOut" },
+              y: { duration: 0.2, ease: "easeInOut", delay: 1.8 },
+              opacity: { duration: 0.2, ease: "easeInOut", delay: 1.8 },
             }}
           >
             <div className="row">
@@ -169,36 +169,36 @@ const FirstSection = (props) => {
                 <p>
                   <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
                   <span className="text-black-50 fs-5">
-                    Skilled Instructors
+                  &nbsp;&nbsp;Skilled Instructors
                   </span>
                 </p>
                 <p>
                   <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
                   <span className="text-black-50 fs-5">
-                    International Certificates
+                  &nbsp;&nbsp;International Certificates
                   </span>
                 </p>
                 <p>
                   <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                  <span className="text-black-50 fs-5">Online Classes</span>
+                  <span className="text-black-50 fs-5">&nbsp;&nbsp;Online Classes</span>
                 </p>
               </div>
               <div className="col-sm-6">
                 <p>
                   <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
                   <span className="text-black-50 fs-5">
-                    Skilled Instructors
+                  &nbsp;&nbsp;Skilled Instructors
                   </span>
                 </p>
                 <p>
                   <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
                   <span className="text-black-50 fs-5">
-                    International Certificates
+                  &nbsp;&nbsp;International Certificates
                   </span>
                 </p>
                 <p>
                   <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                  <span className="text-black-50 fs-5">Online Classes</span>
+                  <span className="text-black-50 fs-5">&nbsp;&nbsp;Online Classes</span>
                 </p>
               </div>
             </div>

@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import Carousel from "./Layout/Carousel/Carousel";
-import ServiceBoad from "./Components/ServiceBoard";
 import FirstSection from "./Components/FirstSection";
 import SecondSection from "./Components/SecondSection";
 import ThirdSection from "./Components/ThirdSection";
+import Footer from "../../UI/Footer/Footer";
 import { motion, useAnimation, useInView } from "framer-motion";
 const Home = () => {
   const homeRef = useRef();
@@ -28,6 +28,7 @@ const Home = () => {
       <FirstSection />
       <SecondSection />
       <ThirdSection />
+      <Footer />
     </motion.div>
   );
 };

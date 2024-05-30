@@ -53,7 +53,6 @@ const Details = () => {
   
   return (
     <Fragment>
-      {/* <Navbar/> */}
       <div className={`container-fluid ${classes.body} min-vh-100 d-flex justify-content-center align-items-center px-1 px-md-5 py-2`}>
         <div className={`container ${classes.cont} d-flex flex-column justify-content-between align-items-center`}>
           <div className={`container ${classes.menu}`}>

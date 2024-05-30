@@ -2,7 +2,9 @@ import React from "react";
 import PopularCourse from "./PopularCourse";
 const PopularCourses = ({courses , user}) => {
   const content = courses.map((course, index) => {
+    console.log(course)
       return <PopularCourse
+        studentsNumber={course.studentsNumber}
         image={course.image}
         price={course.price}
         creator={course.creator}
@@ -16,7 +18,7 @@ const PopularCourses = ({courses , user}) => {
       />
   });
   return (
-    <div className="container-fuid px-5 p-3">
+    <div className="container-fuid px-1 px-lg-5 py-3">
       <div className="row mx-auto">
         {content}
       </div>

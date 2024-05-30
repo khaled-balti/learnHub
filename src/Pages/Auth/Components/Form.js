@@ -70,6 +70,7 @@ const Form = () => {
   const googleSuccessHandler = (res) => {
     dispatch(authenticate(res))
     navigate('/')
+    navigate(0)
   }
   const googleFailureHandler = (err) => {
     console.log(err)

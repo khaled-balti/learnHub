@@ -144,36 +144,36 @@ const SecondSection = (props) => {
                 <p>
                   <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
                   <span className="text-black-50 fs-5">
-                    Skilled Instructors
+                  &nbsp;&nbsp;Skilled Instructors
                   </span>
                 </p>
                 <p>
                   <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
                   <span className="text-black-50 fs-5">
-                    International Certificates
+                  &nbsp;&nbsp;International Certificates
                   </span>
                 </p>
                 <p>
                   <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                  <span className="text-black-50 fs-5">Online Classes</span>
+                  <span className="text-black-50 fs-5">&nbsp;&nbsp;Online Classes</span>
                 </p>
               </div>
               <div className="col-sm-6">
                 <p>
                   <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
                   <span className="text-black-50 fs-5">
-                    Skilled Instructors
+                  &nbsp;&nbsp;Skilled Instructors
                   </span>
                 </p>
                 <p>
                   <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
                   <span className="text-black-50 fs-5">
-                    International Certificates
+                  &nbsp;&nbsp;International Certificates
                   </span>
                 </p>
                 <p>
                   <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                  <span className="text-black-50 fs-5">Online Classes</span>
+                  <span className="text-black-50 fs-5">&nbsp;&nbsp;Online Classes</span>
                 </p>
               </div>
             </div>

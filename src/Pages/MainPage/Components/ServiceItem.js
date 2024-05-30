@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import classes from "./ServiceItem.module.css";
 
 const ServiceItem = forwardRef(({ type, title, description, serviceIsInView, animate, visibleService, variants, initial, transition }, ref) => {
-  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     if (serviceIsInView) {
@@ -20,12 +19,10 @@ const ServiceItem = forwardRef(({ type, title, description, serviceIsInView, ani
       initial={initial}
       animate={animate}
       transition={transition}
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
     >
       <motion.div className="p-3 d-flex flex-column justify-content-center align-items-center" style={{backgroundColor: '#F0FBFC'}} whileHover={{ backgroundColor: "#06bbcc", color: "white" }}>
         <motion.i
-          className={`fa fa-3x ${type} mb-4 ${!isHovered ? classes.blue : "text-white"}`}
+          className={`fa fa-3x ${type} mb-4`}
         />
         <h5 className="mb-3">{title}</h5>
         <p className="w-75">{description}</p>

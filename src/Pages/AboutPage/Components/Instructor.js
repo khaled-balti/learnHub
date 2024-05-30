@@ -25,8 +25,8 @@ const Instructor = (props) => {
       transition={{duration: 0.4, delay: props.delay}}
     >
       <motion.img
-        src={require(`../../../img/${props.image}`)}
-        alt={props.image}
+        src={props.image}
+        alt={props.firstName}
         className={`image-fluid`}
         whileHover={{ scale: 1.1, transition: { duration: 0.4 } }}
       />

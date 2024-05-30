@@ -1,12 +1,1 @@
-.blue {
-    color: #06bbcc;
-}
-.item {
-    background-color: #F0FBFC;
-}
-@media (max-width: 768px) {
-    .item {
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
+

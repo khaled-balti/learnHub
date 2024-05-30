@@ -6,6 +6,7 @@ export const addUserAction = (user, navigate) => async (dispatch) => {
         console.log(data)
         dispatch(AuthActions.addUser({data}))
         navigate('/')
+        navigate(0)
     } catch (error) {
         console.log(error)
     }
@@ -17,6 +18,7 @@ export const fetchUserAction = (user, navigate) => async (dispatch) => {
         console.log(data)
         dispatch(AuthActions.addUser({data}))
         navigate('/')
+        navigate(0)
     } catch (error) {
         console.log(error)
     }

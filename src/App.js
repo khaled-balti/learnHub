@@ -24,7 +24,9 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import DataTableDemo from './Pages/Dashboard/Components/DataTable'
 import UserTable from './Pages/Dashboard/Components/UserTable';
 import Videos from './Pages/Videos/Videos';
-import Infos from './Pages/Infos/Components/Infos';
+import Infos from './Pages/Infos/Infos';
+import Unauthorized from './Pages/Unauthorized/Unauthorized';
+const user = JSON.parse(localStorage.getItem('profile')); 
 const router = createBrowserRouter([
   { path: '/' , element: <RootLayout />, errorElement: <Error/>, children: [
     {index: true , element: <Home />},
@@ -41,10 +43,11 @@ const router = createBrowserRouter([
     {path: 'cart', element: <Cart />},
     {path: 'classes', element: <Classes />},
     {path: 'login', element: <Login />},
+    {path: 'unauthorized', element: <Unauthorized />},
   ]},
-  {path: '/dashboard', element: <Dashboard />, errorElement: <Error/>, children: [
-    {path: 'courses', element: <DataTableDemo />},
-    {path: 'students', element: <UserTable />},
+  {path: '/dashboard', element: user && user?.result?.role == "instructor" ? <Dashboard /> : <Unauthorized/> , errorElement: <Error/>, children: [
+    {path: 'courses', element: user && user?.result?.role == "instructor" ? <DataTableDemo /> : <Unauthorized/>},
+    {path: 'students', element: user && user?.result?.role == "instructor" ? <UserTable /> : <Unauthorized/>},
   ]},
   {path: '/auth', element: <Auth />},
   {path: '/courses/details/:id', element: <Details />},
